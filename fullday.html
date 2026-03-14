@@ -57,10 +57,8 @@ img{max-width:100%;display:block;}
 .hero-bg{
   position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 90% 60% at 50% 30%,rgba(20,163,184,.13) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 40% at 20% 80%,rgba(196,122,45,.10) 0%,transparent 55%),
-    radial-gradient(ellipse 50% 50% at 80% 10%,rgba(14,126,140,.08) 0%,transparent 50%),
-    linear-gradient(180deg,#060C0D 0%,#081c24 50%,#060C0D 100%);
+    linear-gradient(to bottom, rgba(6,12,13,.55) 0%, rgba(6,12,13,.75) 55%, #060C0D 100%),
+    url('fd-hero.jpg') center center / cover no-repeat;
 }
 .hero-grain{
   position:absolute;inset:0;opacity:.025;
@@ -225,7 +223,12 @@ img{max-width:100%;display:block;}
   color:var(--tl);margin-bottom:14px;
 }
 .exp-av{
-  width:64px;height:64px;border-radius:50%;
+  width:80px;height:80px;border-radius:50%;
+  object-fit:cover;border:2px solid rgba(31,193,212,.35);
+  margin-bottom:16px;
+}
+.exp-av-init{
+  width:80px;height:80px;border-radius:50%;
   background:linear-gradient(135deg,var(--td),var(--tl));
   display:flex;align-items:center;justify-content:center;
   font-family:var(--fh);font-size:22px;font-weight:600;color:#040c0e;
@@ -508,7 +511,7 @@ img{max-width:100%;display:block;}
     <div class="headliners">
       <div class="exp-card-big r">
         <div class="exp-badge">★ Headliner</div>
-        <div class="exp-av">JL</div>
+        <img src="fd-jimmy.jpg" alt="Jimmy Lavin" class="exp-av"/>
         <div class="exp-name">Jimmy Lavin</div>
         <div class="exp-role">Co-fundador Flowback · Terapeuta Psicocorporal</div>
         <div class="exp-activity">"Terapia psicocorporal — El cuerpo que habla"</div>
@@ -516,7 +519,7 @@ img{max-width:100%;display:block;}
       </div>
       <div class="exp-card-big r d1">
         <div class="exp-badge">★ Headliner</div>
-        <div class="exp-av">KH</div>
+        <img src="fd-kira.jpg" alt="Kira Huberman" class="exp-av"/>
         <div class="exp-name">Kira Huberman</div>
         <div class="exp-role">Co-fundadora Flowback · Terapeuta Corporal</div>
         <div class="exp-activity">"Meditación profunda guiada — El silencio que sana"</div>
@@ -573,7 +576,7 @@ img{max-width:100%;display:block;}
     <!-- DUNIA YOGA -->
     <div style="margin-top:16px;">
       <div class="exp-card r" style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
-        <div class="exp-av-sm" style="flex-shrink:0;">DY</div>
+        <img src="fd-dunia.jpg" alt="Dunia Yoga" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid var(--border);flex-shrink:0;"/>
         <div>
           <div class="exp-name">Dunia Yoga</div>
           <div class="exp-role">Escuela de Kundalini</div>
