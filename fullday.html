@@ -645,78 +645,90 @@ img{max-width:100%;display:block;}
 ═══════════════════════════════════ -->
 <section style="padding:0 0 clamp(80px,10vw,130px);position:relative;" id="precios">
   <div class="cw">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;" class="r d1">
 
-      <!-- PLAN 1: PRESENCIAL 1 PERSONA -->
-      <div style="border:1px solid var(--border);border-radius:20px;padding:32px 22px 28px;background:linear-gradient(135deg,rgba(10,32,40,.7) 0%,rgba(6,12,13,.95) 100%);text-align:center;transition:all .3s;display:flex;flex-direction:column;" onmouseover="this.style.borderColor='rgba(31,193,212,.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
-        <div style="font-size:24px;margin-bottom:10px;">🎟️</div>
-        <div style="font-family:var(--fh);font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:6px;">Presencial</div>
-        <div style="font-size:11px;color:var(--tl);letter-spacing:.08em;margin-bottom:16px;">1 PERSONA</div>
-        <div style="font-family:var(--fh);font-size:2.8rem;font-weight:600;color:var(--tl);line-height:1;">$28<span style="font-size:1.2rem;color:var(--muted)">.000</span></div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:20px;">CLP</div>
-        <div style="display:flex;flex-direction:column;gap:6px;text-align:left;margin-bottom:auto;padding-bottom:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Evento presencial completo</div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Todas las actividades</div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Experiencia completa en vivo</div>
-        </div>
-        <a href="https://wa.link/o3edju" style="display:block;padding:13px 20px;border-radius:8px;border:1px solid var(--border);color:var(--cream);font-size:13px;font-weight:500;transition:all .2s;text-align:center;" onmouseover="this.style.borderColor='rgba(31,193,212,.5)';this.style.background='rgba(31,193,212,.08)'" onmouseout="this.style.borderColor='';this.style.background=''">Reservar →</a>
+    <!-- EVENTO PRESENCIAL -->
+    <div style="margin-bottom:16px;" class="r">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--tl);font-weight:600;">📍 Evento presencial · Paine, 29 de Marzo</div>
+        <div style="flex:1;height:1px;background:var(--border);"></div>
       </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:700px;">
 
-      <!-- PLAN 2: PRESENCIAL 2 PERSONAS -->
-      <div style="border:1px solid rgba(31,193,212,.3);border-radius:20px;padding:32px 22px 28px;background:linear-gradient(135deg,rgba(14,126,140,.12) 0%,rgba(6,12,13,.95) 100%);text-align:center;transition:all .3s;display:flex;flex-direction:column;position:relative;" onmouseover="this.style.borderColor='rgba(31,193,212,.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(31,193,212,.3)';this.style.transform=''">
-        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--tl);color:#040c0e;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:100px;white-space:nowrap;">Ahorra $13.000</div>
-        <div style="font-size:24px;margin-bottom:10px;">🎟️🎟️</div>
-        <div style="font-family:var(--fh);font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:6px;">Presencial</div>
-        <div style="font-size:11px;color:var(--tl);letter-spacing:.08em;margin-bottom:16px;">2 PERSONAS</div>
-        <div style="font-family:var(--fh);font-size:2.8rem;font-weight:600;color:var(--tl);line-height:1;">$43<span style="font-size:1.2rem;color:var(--muted)">.000</span></div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">CLP</div>
-        <div style="font-size:11px;color:var(--tl);margin-bottom:20px;"><s style="color:var(--muted);">$56.000</s> por ambos</div>
-        <div style="display:flex;flex-direction:column;gap:6px;text-align:left;margin-bottom:auto;padding-bottom:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> 2 entradas presenciales</div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Todas las actividades</div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Ven con quien quieras</div>
+        <!-- 1 PERSONA -->
+        <div style="border:1px solid var(--border);border-radius:20px;padding:32px 28px 28px;background:linear-gradient(135deg,rgba(10,32,40,.7) 0%,rgba(6,12,13,.95) 100%);text-align:center;transition:all .3s;display:flex;flex-direction:column;" onmouseover="this.style.borderColor='rgba(31,193,212,.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+          <div style="font-family:var(--fh);font-size:1.2rem;font-weight:400;color:var(--cream);margin-bottom:4px;">1 Persona</div>
+          <div style="font-family:var(--fh);font-size:3rem;font-weight:600;color:var(--tl);line-height:1;margin:12px 0 4px;">$28<span style="font-size:1.2rem;color:var(--muted)">.000</span></div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:20px;">CLP</div>
+          <div style="display:flex;flex-direction:column;gap:6px;text-align:left;margin-bottom:auto;padding-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Jornada completa presencial</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Todas las actividades y conferencias</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Experiencia en vivo con los expositores</div>
+          </div>
+          <a href="https://wa.link/o3edju" style="display:block;padding:13px 20px;border-radius:8px;border:1px solid var(--border);color:var(--cream);font-size:13px;font-weight:500;transition:all .2s;text-align:center;">Reservar →</a>
         </div>
-        <a href="https://wa.link/o3edju" style="display:block;padding:13px 20px;border-radius:8px;background:var(--tl);color:#040c0e;font-size:13px;font-weight:600;transition:all .2s;text-align:center;" onmouseover="this.style.background='var(--teal)'" onmouseout="this.style.background='var(--tl)'">Reservar para 2 →</a>
-      </div>
 
-      <!-- PLAN 3: ONLINE -->
-      <div style="border:1px solid var(--border);border-radius:20px;padding:32px 22px 28px;background:linear-gradient(135deg,rgba(10,32,40,.7) 0%,rgba(6,12,13,.95) 100%);text-align:center;transition:all .3s;display:flex;flex-direction:column;" onmouseover="this.style.borderColor='rgba(31,193,212,.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
-        <div style="font-size:24px;margin-bottom:10px;">📺</div>
-        <div style="font-family:var(--fh);font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:6px;">Online</div>
-        <div style="font-size:11px;color:var(--tl);letter-spacing:.08em;margin-bottom:16px;">DESDE CUALQUIER LUGAR</div>
-        <div style="font-family:var(--fh);font-size:2.8rem;font-weight:600;color:var(--tl);line-height:1;">$10</div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:20px;">USD</div>
-        <div style="display:flex;flex-direction:column;gap:6px;text-align:left;margin-bottom:auto;padding-bottom:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Evento en streaming</div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Grabaciones completas</div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Resúmenes de las prácticas</div>
+        <!-- 2 PERSONAS -->
+        <div style="border:1px solid rgba(31,193,212,.3);border-radius:20px;padding:32px 28px 28px;background:linear-gradient(135deg,rgba(14,126,140,.12) 0%,rgba(6,12,13,.95) 100%);text-align:center;transition:all .3s;display:flex;flex-direction:column;position:relative;" onmouseover="this.style.borderColor='rgba(31,193,212,.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(31,193,212,.3)';this.style.transform=''">
+          <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--tl);color:#040c0e;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:100px;white-space:nowrap;">Ahorra $13.000</div>
+          <div style="font-family:var(--fh);font-size:1.2rem;font-weight:400;color:var(--cream);margin-bottom:4px;">2 Personas</div>
+          <div style="font-family:var(--fh);font-size:3rem;font-weight:600;color:var(--tl);line-height:1;margin:12px 0 4px;">$43<span style="font-size:1.2rem;color:var(--muted)">.000</span></div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">CLP</div>
+          <div style="font-size:11px;color:var(--tl);margin-bottom:20px;"><s style="color:var(--muted);">$56.000</s> por ambos</div>
+          <div style="display:flex;flex-direction:column;gap:6px;text-align:left;margin-bottom:auto;padding-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> 2 entradas presenciales</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Todas las actividades y conferencias</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--tl);">✓</span> Ven con quien quieras</div>
+          </div>
+          <a href="https://wa.link/o3edju" style="display:block;padding:13px 20px;border-radius:8px;background:var(--tl);color:#040c0e;font-size:13px;font-weight:600;transition:all .2s;text-align:center;">Reservar para 2 →</a>
         </div>
-        <a href="https://wa.link/o3edju" style="display:block;padding:13px 20px;border-radius:8px;border:1px solid var(--border);color:var(--cream);font-size:13px;font-weight:500;transition:all .2s;text-align:center;" onmouseover="this.style.borderColor='rgba(31,193,212,.5)';this.style.background='rgba(31,193,212,.08)'" onmouseout="this.style.borderColor='';this.style.background=''">Comprar acceso →</a>
-      </div>
 
-      <!-- PLAN 4: MENTORÍA VIP -->
-      <div style="border:1px solid rgba(196,122,45,.4);border-radius:20px;padding:32px 22px 28px;background:linear-gradient(135deg,rgba(196,122,45,.12) 0%,rgba(6,12,13,.95) 100%);text-align:center;transition:all .3s;display:flex;flex-direction:column;position:relative;" onmouseover="this.style.borderColor='rgba(196,122,45,.7)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(196,122,45,.4)';this.style.transform=''">
-        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#040c0e;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:100px;white-space:nowrap;">Mejor valor</div>
-        <div style="font-size:24px;margin-bottom:10px;">🔥</div>
-        <div style="font-family:var(--fh);font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:6px;">Mentoría Online</div>
-        <div style="font-size:11px;color:var(--gl);letter-spacing:.08em;margin-bottom:16px;">TODO INCLUIDO</div>
-        <div style="font-family:var(--fh);font-size:2.8rem;font-weight:600;color:var(--gl);line-height:1;">$35</div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:20px;">USD / mes</div>
-        <div style="display:flex;flex-direction:column;gap:6px;text-align:left;margin-bottom:auto;padding-bottom:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Evento online + grabaciones</div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Mentoría de entrenamiento</div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Entrada gratis a TODOS los eventos</div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Acceso a la comunidad</div>
+      </div>
+    </div>
+
+    <!-- PASE ONLINE -->
+    <div class="r d1">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:48px;">
+        <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gl);font-weight:600;">💻 Pase online · Desde cualquier lugar del mundo</div>
+        <div style="flex:1;height:1px;background:rgba(196,122,45,.2);"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:700px;">
+
+        <!-- PASE ONLINE -->
+        <div style="border:1px solid rgba(196,122,45,.2);border-radius:20px;padding:32px 28px 28px;background:linear-gradient(135deg,rgba(196,122,45,.06) 0%,rgba(6,12,13,.95) 100%);text-align:center;transition:all .3s;display:flex;flex-direction:column;" onmouseover="this.style.borderColor='rgba(196,122,45,.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(196,122,45,.2)';this.style.transform=''">
+          <div style="font-family:var(--fh);font-size:1.2rem;font-weight:400;color:var(--cream);margin-bottom:4px;">Pase Online</div>
+          <p style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px;">Ve el programa completo por Zoom y quédate con la grabación.</p>
+          <div style="font-family:var(--fh);font-size:3rem;font-weight:600;color:var(--gl);line-height:1;margin:8px 0 4px;">$10</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:20px;">USD · pago único</div>
+          <div style="display:flex;flex-direction:column;gap:6px;text-align:left;margin-bottom:auto;padding-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Programa completo por Zoom en vivo</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Grabación completa para ver después</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Resúmenes de las prácticas</div>
+          </div>
+          <a href="https://wa.link/o3edju" style="display:block;padding:13px 20px;border-radius:8px;border:1px solid rgba(196,122,45,.3);color:var(--gl);font-size:13px;font-weight:500;transition:all .2s;text-align:center;">Comprar pase →</a>
         </div>
-        <a href="https://wa.link/o3edju" style="display:block;padding:13px 20px;border-radius:8px;background:var(--gold);color:#040c0e;font-size:13px;font-weight:600;transition:all .2s;text-align:center;" onmouseover="this.style.background='var(--gl)'" onmouseout="this.style.background='var(--gold)'">Unirme a la Mentoría →</a>
-      </div>
 
+        <!-- PASE ONLINE + MENTORÍA -->
+        <div style="border:1px solid rgba(196,122,45,.4);border-radius:20px;padding:32px 28px 28px;background:linear-gradient(135deg,rgba(196,122,45,.12) 0%,rgba(6,12,13,.95) 100%);text-align:center;transition:all .3s;display:flex;flex-direction:column;position:relative;" onmouseover="this.style.borderColor='rgba(196,122,45,.7)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(196,122,45,.4)';this.style.transform=''">
+          <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#040c0e;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:100px;white-space:nowrap;">Mejor valor</div>
+          <div style="font-family:var(--fh);font-size:1.2rem;font-weight:400;color:var(--cream);margin-bottom:4px;">Pase Online + Mentoría</div>
+          <p style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px;">Todo el programa online más la mentoría de entrenamiento Flowback.</p>
+          <div style="font-family:var(--fh);font-size:3rem;font-weight:600;color:var(--gl);line-height:1;margin:8px 0 4px;">$35<span style="font-size:1.2rem;color:var(--muted)">.000</span></div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:20px;">CLP / mes</div>
+          <div style="display:flex;flex-direction:column;gap:6px;text-align:left;margin-bottom:auto;padding-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Todo lo del Pase Online</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Mentoría de entrenamiento Flowback</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Entrada gratis a TODOS los eventos online</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--cream);"><span style="color:var(--gl);">✓</span> Acceso a la comunidad</div>
+          </div>
+          <a href="https://wa.link/o3edju" style="display:block;padding:13px 20px;border-radius:8px;background:var(--gold);color:#040c0e;font-size:13px;font-weight:600;transition:all .2s;text-align:center;">Unirme a la Mentoría →</a>
+        </div>
+
+      </div>
     </div>
 
     <!-- RESPONSIVE -->
     <style>
-      @media(max-width:900px){#precios .cw > div{grid-template-columns:repeat(2,1fr)!important;}}
-      @media(max-width:500px){#precios .cw > div{grid-template-columns:1fr!important;}}
+      @media(max-width:600px){#precios .cw div[style*="grid-template-columns"]{grid-template-columns:1fr!important;}}
     </style>
   </div>
 </section>
