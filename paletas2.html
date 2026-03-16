@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Paleta Flowback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0A2830;font-family:'DM Sans',sans-serif;padding:32px 20px;color:#EAF4F4;}
+
+.title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#EAF4F4;margin-bottom:6px;}
+.sub{font-size:13px;color:#5A9AA8;margin-bottom:40px;letter-spacing:.06em;}
+
+/* SWATCHES */
+.swatches{display:flex;gap:0;border-radius:16px;overflow:hidden;margin-bottom:48px;height:80px;border:1px solid rgba(255,255,255,.06);}
+.sw{flex:1;display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;}
+.sw span{font-size:9px;letter-spacing:.08em;font-weight:600;text-transform:uppercase;opacity:.8;}
+
+/* PREVIEW CARD */
+.card{background:#0D3D48;border:1px solid rgba(26,184,200,.2);border-radius:20px;padding:36px 32px;max-width:480px;}
+.tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#1AB8C8;margin-bottom:14px;}
+.card h2{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:#EAF4F4;line-height:1.2;margin-bottom:14px;}
+.card p{font-size:14px;color:#7AACB4;line-height:1.75;margin-bottom:24px;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+.pill{padding:5px 14px;border-radius:100px;font-size:12px;background:rgba(26,184,200,.1);color:#1AB8C8;border:1px solid rgba(26,184,200,.25);}
+.btn-main{display:inline-block;padding:13px 28px;border-radius:10px;background:#C4621A;color:#fff;font-size:13px;font-weight:600;margin-right:10px;}
+.btn-sec{display:inline-block;padding:13px 28px;border-radius:10px;border:1px solid rgba(26,184,200,.3);color:#1AB8C8;font-size:13px;font-weight:500;}
+
+/* COLORES */
+.colores{margin-top:48px;}
+.colores h3{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5A9AA8;margin-bottom:20px;}
+.color-row{display:flex;flex-direction:column;gap:12px;}
+.color-item{display:flex;align-items:center;gap:16px;}
+.color-box{width:48px;height:48px;border-radius:10px;flex-shrink:0;}
+.color-info .name{font-size:13px;font-weight:500;color:#EAF4F4;}
+.color-info .hex{font-size:11px;color:#5A9AA8;font-family:monospace;}
+.color-info .uso{font-size:11px;color:#4A8A98;margin-top:2px;}
+</style>
+</head>
+<body>
+
+<div class="title">Paleta extraída</div>
+<p class="sub">De la imagen que enviaste — piedras turquesa y hojas naranja</p>
+
+<!-- SWATCHES -->
+<div class="swatches">
+  <div class="sw" style="background:#0A2830;"><span style="color:#1AB8C8;">■</span></div>
+  <div class="sw" style="background:#0D3D48;"><span style="color:#1AB8C8;">■</span></div>
+  <div class="sw" style="background:#0E6E7A;"><span style="color:#EAF4F4;">■</span></div>
+  <div class="sw" style="background:#1AB8C8;"><span style="color:#0A2830;">■</span></div>
+  <div class="sw" style="background:#C4621A;"><span style="color:#fff;">■</span></div>
+  <div class="sw" style="background:#EAF4F4;"><span style="color:#0A2830;">■</span></div>
+</div>
+
+<!-- PREVIEW -->
+<div class="card">
+  <div class="tag">Sábado · Paine · 19 de Abril</div>
+  <h2>Tu cuerpo lleva demasiado<br>tiempo <em>sosteniendo todo.</em></h2>
+  <p>Un espacio para quienes saben que su cuerpo guarda mucho más potencial del que están viviendo hoy.</p>
+  <div class="pills">
+    <span class="pill">📍 Paine, Chile</span>
+    <span class="pill">⏰ 10:30 hrs</span>
+    <span class="pill">✦ Cupos limitados</span>
+  </div>
+  <a class="btn-main" href="#">Reservar mi lugar →</a>
+  <a class="btn-sec" href="#">Ver programa</a>
+</div>
+
+<!-- COLORES -->
+<div class="colores">
+  <h3>Los 6 colores</h3>
+  <div class="color-row">
+    <div class="color-item">
+      <div class="color-box" style="background:#0A2830;border:1px solid rgba(255,255,255,.1);"></div>
+      <div class="color-info">
+        <div class="name">Teal Profundo</div>
+        <div class="hex">#0A2830</div>
+        <div class="uso">Fondo principal</div>
+      </div>
+    </div>
+    <div class="color-item">
+      <div class="color-box" style="background:#0D3D48;border:1px solid rgba(255,255,255,.1);"></div>
+      <div class="color-info">
+        <div class="name">Teal Medio</div>
+        <div class="hex">#0D3D48</div>
+        <div class="uso">Cards y secciones</div>
+      </div>
+    </div>
+    <div class="color-item">
+      <div class="color-box" style="background:#0E6E7A;"></div>
+      <div class="color-info">
+        <div class="name">Teal</div>
+        <div class="hex">#0E6E7A</div>
+        <div class="uso">Bordes y separadores</div>
+      </div>
+    </div>
+    <div class="color-item">
+      <div class="color-box" style="background:#1AB8C8;"></div>
+      <div class="color-info">
+        <div class="name">Turquesa</div>
+        <div class="hex">#1AB8C8</div>
+        <div class="uso">Acento primario · íconos · tags</div>
+      </div>
+    </div>
+    <div class="color-item">
+      <div class="color-box" style="background:#C4621A;"></div>
+      <div class="color-info">
+        <div class="name">Naranja Tierra</div>
+        <div class="hex">#C4621A</div>
+        <div class="uso">Botones CTA · destacados</div>
+      </div>
+    </div>
+    <div class="color-item">
+      <div class="color-box" style="background:#EAF4F4;border:1px solid rgba(0,0,0,.1);"></div>
+      <div class="color-info">
+        <div class="name">Blanco Agua</div>
+        <div class="hex">#EAF4F4</div>
+        <div class="uso">Texto principal</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
