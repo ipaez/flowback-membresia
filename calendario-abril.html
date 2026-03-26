@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Calendario de Publicaciones · Abril 2026 · Flowback</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0A2830;color:#EAF4F4;font-family:'DM Sans',sans-serif;font-size:13px;-webkit-font-smoothing:antialiased;}
+
+/* ── HEADER ── */
+.page-header{background:linear-gradient(135deg,#0A2830,#0D3D48);padding:32px 40px 24px;border-bottom:1px solid rgba(26,184,200,.2);}
+.page-header h1{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:#EAF4F4;margin-bottom:4px;}
+.page-header h1 span{color:#1AB8C8;}
+.page-header p{color:rgba(234,244,244,.55);font-size:13px;}
+
+/* ── LEYENDA EVENTOS ── */
+.leyenda{display:flex;flex-wrap:wrap;gap:10px;padding:20px 40px;background:#0D3D48;border-bottom:1px solid rgba(26,184,200,.12);}
+.ley-item{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(234,244,244,.8);}
+.ley-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+
+/* ── LEYENDA CANALES ── */
+.canales-bar{display:flex;flex-wrap:wrap;gap:8px;padding:14px 40px;background:rgba(10,40,48,.6);border-bottom:1px solid rgba(26,184,200,.08);}
+.canal-tag{padding:3px 10px;border-radius:100px;font-size:10px;font-weight:600;letter-spacing:.04em;}
+
+/* ── SEMANAS ── */
+.semana-block{margin:24px 40px 0;}
+.semana-titulo{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#1AB8C8;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(26,184,200,.15);}
+.dias-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:24px;}
+
+/* ── TARJETA DÍA ── */
+.dia{background:#0D3D48;border:1px solid rgba(26,184,200,.12);border-radius:12px;padding:10px;min-height:160px;transition:border-color .2s;}
+.dia:hover{border-color:rgba(26,184,200,.3);}
+.dia.hoy{border-color:rgba(196,98,26,.4);background:rgba(196,98,26,.05);}
+.dia.vacio{background:rgba(13,61,72,.3);border-color:rgba(26,184,200,.05);}
+.dia-num{font-size:18px;font-weight:600;color:#EAF4F4;margin-bottom:4px;line-height:1;}
+.dia-nombre{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(234,244,244,.35);margin-bottom:8px;}
+.evento-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:.04em;margin-bottom:6px;text-transform:uppercase;}
+.posts{display:flex;flex-direction:column;gap:4px;}
+.post-item{border-radius:6px;padding:5px 7px;font-size:10px;line-height:1.4;}
+.post-canal{font-size:9px;font-weight:600;letter-spacing:.04em;opacity:.7;margin-bottom:1px;}
+.post-texto{color:#EAF4F4;}
+
+/* ── COLORES EVENTOS ── */
+.ev-fullday    {background:rgba(26,184,200,.15);color:#1AB8C8;}
+.ev-consteladora{background:rgba(107,48,16,.35);color:#D4924A;}
+.ev-flowmaster  {background:rgba(196,98,26,.2);color:#E07840;}
+.ev-cert-lib    {background:rgba(80,140,80,.2);color:#7BCB7B;}
+
+/* ── COLORES CANALES posts ── */
+.cn-ig-jimmy    {background:rgba(193,127,74,.1);border-left:2px solid #C17F4A;}
+.cn-ig-flowback {background:rgba(26,184,200,.08);border-left:2px solid #1AB8C8;}
+.cn-ig-kira     {background:rgba(180,100,160,.12);border-left:2px solid #C478B4;}
+.cn-stories     {background:rgba(230,180,50,.08);border-left:2px solid #E6B432;}
+.cn-tiktok      {background:rgba(255,255,255,.05);border-left:2px solid #EAF4F4;}
+.cn-email-brevo {background:rgba(60,130,210,.1);border-left:2px solid #3C82D2;}
+.cn-email-nas   {background:rgba(96,180,130,.1);border-left:2px solid #60B482;}
+.cn-wsp-tribu   {background:rgba(37,211,102,.1);border-left:2px solid #25D366;}
+.cn-wsp-grupos  {background:rgba(37,211,102,.06);border-left:2px solid rgba(37,211,102,.4);}
+
+/* ── CANAL TAGS ── */
+.ct-ig-jimmy    {background:#C17F4A22;color:#C17F4A;border:1px solid #C17F4A44;}
+.ct-ig-flowback {background:#1AB8C822;color:#1AB8C8;border:1px solid #1AB8C844;}
+.ct-ig-kira     {background:#C478B422;color:#C478B4;border:1px solid #C478B444;}
+.ct-stories     {background:#E6B43222;color:#E6B432;border:1px solid #E6B43244;}
+.ct-tiktok      {background:rgba(255,255,255,.06);color:#EAF4F4;border:1px solid rgba(234,244,244,.2);}
+.ct-email-brevo {background:#3C82D222;color:#3C82D2;border:1px solid #3C82D244;}
+.ct-email-nas   {background:#60B48222;color:#60B482;border:1px solid #60B48244;}
+.ct-wsp-tribu   {background:#25D36622;color:#25D366;border:1px solid #25D36644;}
+.ct-wsp-grupos  {background:#25D36611;color:#7AE89A;border:1px solid #25D36622;}
+
+/* ── RESUMEN ── */
+.resumen{margin:0 40px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.resumen-card{background:#0D3D48;border:1px solid rgba(26,184,200,.15);border-radius:14px;padding:20px;}
+.resumen-card h3{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#1AB8C8;margin-bottom:12px;}
+.resumen-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.resumen-card li{font-size:11px;color:rgba(234,244,244,.75);display:flex;align-items:center;gap:6px;}
+.resumen-card li::before{content:"→";color:#C4621A;font-size:10px;}
+
+@media(max-width:900px){
+  .dias-grid{grid-template-columns:repeat(4,1fr);}
+  .page-header,.leyenda,.canales-bar,.semana-block,.resumen{padding-left:16px;padding-right:16px;}
+  .semana-block{margin-left:0;margin-right:0;}
+  .resumen{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .dias-grid{grid-template-columns:repeat(2,1fr);}
+  .resumen{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <h1>Calendario <span>Abril 2026</span></h1>
+  <p>Plan de publicaciones · Todos los canales · Todos los eventos</p>
+</div>
+
+<!-- LEYENDA EVENTOS -->
+<div class="leyenda">
+  <div class="ley-item"><div class="ley-dot" style="background:#1AB8C8;"></div> Full Day 19 Abr</div>
+  <div class="ley-item"><div class="ley-dot" style="background:#D4924A;"></div> Lanzamiento Consteladora 7-9 Abr</div>
+  <div class="ley-item"><div class="ley-dot" style="background:#E07840;"></div> Cert Flowmaster 26 Abr</div>
+  <div class="ley-item"><div class="ley-dot" style="background:#7BCB7B;"></div> Cert Liberación Emocional (creación)</div>
+</div>
+
+<!-- CANALES -->
+<div class="canales-bar">
+  <span class="canal-tag ct-ig-jimmy">IG Jimmy</span>
+  <span class="canal-tag ct-ig-flowback">IG Flowback</span>
+  <span class="canal-tag ct-ig-kira">IG Kira</span>
+  <span class="canal-tag ct-stories">Stories</span>
+  <span class="canal-tag ct-tiktok">TikTok</span>
+  <span class="canal-tag ct-email-brevo">Email Brevo</span>
+  <span class="canal-tag ct-email-nas">Email Nas</span>
+  <span class="canal-tag ct-wsp-tribu">WSP Tribu</span>
+  <span class="canal-tag ct-wsp-grupos">WSP Grupos</span>
+</div>
+
+<!-- ════════════════════════════════════
+     SEMANA 1: Mar 30 – Abr 5
+════════════════════════════════════ -->
+<div class="semana-block">
+  <div class="semana-titulo">SEMANA 1 · 30 MAR – 5 ABR · Calentamiento: Full Day + Consteladora</div>
+  <div class="dias-grid">
+
+    <!-- Lun 30 Mar -->
+    <div class="dia">
+      <div class="dia-num">30</div>
+      <div class="dia-nombre">Lunes · Mar</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Reel: "¿Qué pasa en tu cuerpo cuando te estresas?" — gancho para Full Day</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Countdown al Full Day 19 Abr + link en bio</div></div>
+      </div>
+    </div>
+
+    <!-- Mar 31 Mar -->
+    <div class="dia">
+      <div class="dia-num">31</div>
+      <div class="dia-nombre">Martes · Mar</div>
+      <div class="posts">
+        <div class="post-item cn-email-brevo"><div class="post-canal">EMAIL BREVO</div><div class="post-texto">Email 2: "Lo que va a pasar el 19 de abril" — programa completo + precio preventa cierra hoy</div></div>
+        <div class="post-item cn-wsp-tribu"><div class="post-canal">WSP TRIBU</div><div class="post-texto">Recordatorio preventa: "Hoy es el último día a precio especial"</div></div>
+      </div>
+    </div>
+
+    <!-- Mié 1 Abr -->
+    <div class="dia">
+      <div class="dia-num">1</div>
+      <div class="dia-nombre">Miércoles</div>
+      <div class="posts">
+        <div class="post-item cn-ig-flowback"><div class="post-canal">IG FLOWBACK</div><div class="post-texto">Carrusel: Expositores del Full Day — Dr. Neira, Daniela Carrasco, Raúl Power</div></div>
+        <div class="post-item cn-tiktok"><div class="post-canal">TIKTOK</div><div class="post-texto">"¿Qué son las constelaciones familiares?" — teaser del lanzamiento 7-9</div></div>
+      </div>
+    </div>
+
+    <!-- Jue 2 Abr -->
+    <div class="dia">
+      <div class="dia-num">2</div>
+      <div class="dia-nombre">Jueves</div>
+      <div class="posts">
+        <div class="post-item cn-ig-kira"><div class="post-canal">IG KIRA</div><div class="post-texto">Post: "Por qué co-creé el Full Day" — perspectiva personal de Kira</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Encuesta: "¿Tienes emociones atrapadas en el cuerpo?" Sí / Siempre</div></div>
+      </div>
+    </div>
+
+    <!-- Vie 3 Abr -->
+    <div class="dia">
+      <div class="dia-num">3</div>
+      <div class="dia-nombre">Viernes</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Post: "¿Qué son las lealtades invisibles con los ancestros?" — previa a Daniela Carrasco</div></div>
+        <div class="post-item cn-wsp-grupos"><div class="post-canal">WSP GRUPOS</div><div class="post-texto">Mensaje: "Quedan menos de 3 semanas para el Full Day. ¿Ya reservaste tu lugar?"</div></div>
+      </div>
+    </div>
+
+    <!-- Sáb 4 Abr -->
+    <div class="dia">
+      <div class="dia-num">4</div>
+      <div class="dia-nombre">Sábado</div>
+      <div class="posts">
+        <div class="post-item cn-tiktok"><div class="post-canal">TIKTOK</div><div class="post-texto">Video: "Lo que no te enseñaron sobre el estrés y el cuerpo"</div></div>
+        <div class="post-item cn-ig-flowback"><div class="post-canal">IG FLOWBACK</div><div class="post-texto">Stories con testimonio de alguien que ya está inscrito</div></div>
+      </div>
+    </div>
+
+    <!-- Dom 5 Abr -->
+    <div class="dia">
+      <div class="dia-num">5</div>
+      <div class="dia-nombre">Domingo</div>
+      <div class="posts">
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Descanso / contenido liviano — frase inspiracional Flowback</div></div>
+        <div class="post-item cn-email-nas"><div class="post-canal">EMAIL NAS</div><div class="post-texto">Recordatorio comunidad: "Esta semana lanzamos algo con Daniela Carrasco"</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     SEMANA 2: Abr 6-12 — LANZAMIENTO CONSTELADORA
+════════════════════════════════════ -->
+<div class="semana-block">
+  <div class="semana-titulo">SEMANA 2 · 6-12 ABR · 🔥 LANZAMIENTO CONSTELADORA + Cert Flowmaster abre inscripciones</div>
+  <div class="dias-grid">
+
+    <!-- Lun 6 -->
+    <div class="dia">
+      <div class="dia-num">6</div>
+      <div class="dia-nombre">Lunes</div>
+      <div class="evento-badge ev-consteladora">Pre-lanzamiento</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Reel misterioso: "Esta semana pasa algo que llevo meses esperando..."</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Countdown 2 días + "¿Sabes qué son las constelaciones?"</div></div>
+      </div>
+    </div>
+
+    <!-- Mar 7 -->
+    <div class="dia hoy">
+      <div class="dia-num">7</div>
+      <div class="dia-nombre">Martes</div>
+      <div class="evento-badge ev-consteladora">🚀 Lanzamiento</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Post de lanzamiento oficial Consteladora — historia + propuesta</div></div>
+        <div class="post-item cn-ig-kira"><div class="post-canal">IG KIRA</div><div class="post-texto">Re-share del lanzamiento con perspectiva propia</div></div>
+        <div class="post-item cn-email-brevo"><div class="post-canal">EMAIL BREVO</div><div class="post-texto">Email: "Nuevo: lanzamiento con Daniela Carrasco" — qué es, por qué importa</div></div>
+        <div class="post-item cn-wsp-tribu"><div class="post-canal">WSP TRIBU</div><div class="post-texto">Mensaje de lanzamiento + link</div></div>
+      </div>
+    </div>
+
+    <!-- Mié 8 -->
+    <div class="dia">
+      <div class="dia-num">8</div>
+      <div class="dia-nombre">Miércoles</div>
+      <div class="evento-badge ev-consteladora">Consteladora</div>
+      <div class="posts">
+        <div class="post-item cn-tiktok"><div class="post-canal">TIKTOK</div><div class="post-texto">"¿Qué pasa en un proceso de constelaciones?" — educativo, sin vender</div></div>
+        <div class="post-item cn-ig-flowback"><div class="post-canal">IG FLOWBACK</div><div class="post-texto">Carrusel: "5 señales de que cargas algo que no es tuyo"</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Q&A: "¿Qué preguntas tienes sobre las constelaciones?"</div></div>
+      </div>
+    </div>
+
+    <!-- Jue 9 -->
+    <div class="dia">
+      <div class="dia-num">9</div>
+      <div class="dia-nombre">Jueves</div>
+      <div class="evento-badge ev-consteladora">Cierre lanz.</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Post de cierre: "Última oportunidad de unirte a esto"</div></div>
+        <div class="post-item cn-wsp-grupos"><div class="post-canal">WSP GRUPOS</div><div class="post-texto">Mensaje final del lanzamiento Consteladora</div></div>
+        <div class="post-item cn-email-nas"><div class="post-canal">EMAIL NAS</div><div class="post-texto">Recordatorio último día</div></div>
+      </div>
+    </div>
+
+    <!-- Vie 10 -->
+    <div class="dia">
+      <div class="dia-num">10</div>
+      <div class="dia-nombre">Viernes</div>
+      <div class="evento-badge ev-flowmaster">Cert abre</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Anuncio: "Abre inscripciones Cert Flowmaster 26 Abr"</div></div>
+        <div class="post-item cn-email-brevo"><div class="post-canal">EMAIL BREVO</div><div class="post-texto">Email: "Cert Flowmaster — ya puedes inscribirte"</div></div>
+        <div class="post-item cn-wsp-tribu"><div class="post-canal">WSP TRIBU</div><div class="post-texto">Aviso de inscripciones abiertas</div></div>
+      </div>
+    </div>
+
+    <!-- Sáb 11 -->
+    <div class="dia">
+      <div class="dia-num">11</div>
+      <div class="dia-nombre">Sábado</div>
+      <div class="posts">
+        <div class="post-item cn-tiktok"><div class="post-canal">TIKTOK</div><div class="post-texto">"Por qué me certifiqué en Flowback" — testimonial/historia</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Full Day: "Solo faltan 8 días" — countdown diario</div></div>
+      </div>
+    </div>
+
+    <!-- Dom 12 -->
+    <div class="dia">
+      <div class="dia-num">12</div>
+      <div class="dia-nombre">Domingo</div>
+      <div class="posts">
+        <div class="post-item cn-ig-flowback"><div class="post-canal">IG FLOWBACK</div><div class="post-texto">Post de comunidad: foto/video de Flowmasters en acción</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Encuesta: "¿Ya estás inscrito al Full Day?" + link</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     SEMANA 3: Abr 13-19 — URGENCIA FULL DAY
+════════════════════════════════════ -->
+<div class="semana-block">
+  <div class="semana-titulo">SEMANA 3 · 13-19 ABR · 🎯 URGENCIA MÁXIMA FULL DAY</div>
+  <div class="dias-grid">
+
+    <!-- Lun 13 -->
+    <div class="dia">
+      <div class="dia-num">13</div>
+      <div class="dia-nombre">Lunes</div>
+      <div class="evento-badge ev-fullday">Última semana</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Reel: "Esta semana te cuento por qué armé este Full Day" — historia personal</div></div>
+        <div class="post-item cn-email-brevo"><div class="post-canal">EMAIL BREVO</div><div class="post-texto">Email urgencia: "El domingo 19 nos encontramos — quedan pocos cupos"</div></div>
+      </div>
+    </div>
+
+    <!-- Mar 14 -->
+    <div class="dia">
+      <div class="dia-num">14</div>
+      <div class="dia-nombre">Martes</div>
+      <div class="posts">
+        <div class="post-item cn-tiktok"><div class="post-canal">TIKTOK</div><div class="post-texto">"Cómo llegar a Paine" — logístico y práctico, genera confianza</div></div>
+        <div class="post-item cn-ig-kira"><div class="post-canal">IG KIRA</div><div class="post-texto">Post: "Lo que yo voy a facilitar el 19"</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Countdown: "5 días" + swipe up al link</div></div>
+      </div>
+    </div>
+
+    <!-- Mié 15 -->
+    <div class="dia">
+      <div class="dia-num">15</div>
+      <div class="dia-nombre">Miércoles</div>
+      <div class="posts">
+        <div class="post-item cn-ig-flowback"><div class="post-canal">IG FLOWBACK</div><div class="post-texto">Post: Presentación Dr. Rodolfo Neira — quién es y qué trae al Full Day</div></div>
+        <div class="post-item cn-wsp-grupos"><div class="post-canal">WSP GRUPOS</div><div class="post-texto">"Quedan 4 días y todavía hay cupo online ($10 USD) y presencial"</div></div>
+      </div>
+    </div>
+
+    <!-- Jue 16 -->
+    <div class="dia">
+      <div class="dia-num">16</div>
+      <div class="dia-nombre">Jueves</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Post emocional: "Esto es lo que quiero que sientas el 19"</div></div>
+        <div class="post-item cn-email-nas"><div class="post-canal">EMAIL NAS</div><div class="post-texto">Email comunidad: recordatorio + info logística para inscritos</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">"3 días" + repost de quien ya se inscribió</div></div>
+      </div>
+    </div>
+
+    <!-- Vie 17 -->
+    <div class="dia">
+      <div class="dia-num">17</div>
+      <div class="dia-nombre">Viernes</div>
+      <div class="posts">
+        <div class="post-item cn-email-brevo"><div class="post-canal">EMAIL BREVO</div><div class="post-texto">Email logístico a inscritos: hora, dirección exacta, qué traer</div></div>
+        <div class="post-item cn-wsp-tribu"><div class="post-canal">WSP TRIBU</div><div class="post-texto">Mensaje: "Pasado mañana. ¿Ya tienes tu lugar confirmado?"</div></div>
+      </div>
+    </div>
+
+    <!-- Sáb 18 -->
+    <div class="dia">
+      <div class="dia-num">18</div>
+      <div class="dia-nombre">Sábado</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Story/Reel: "Mañana es el día. Aquí te cuento lo que preparamos"</div></div>
+        <div class="post-item cn-wsp-grupos"><div class="post-canal">WSP GRUPOS</div><div class="post-texto">Último push: "Mañana. Última oportunidad de inscribirse online"</div></div>
+        <div class="post-item cn-tiktok"><div class="post-canal">TIKTOK</div><div class="post-texto">Video: "Preparando el Full Day" — behind the scenes</div></div>
+      </div>
+    </div>
+
+    <!-- Dom 19 🎉 -->
+    <div class="dia" style="border-color:rgba(26,184,200,.5);background:rgba(26,184,200,.06);">
+      <div class="dia-num" style="color:#1AB8C8;">19</div>
+      <div class="dia-nombre">Domingo</div>
+      <div class="evento-badge ev-fullday" style="font-size:10px;">🎉 FULL DAY</div>
+      <div class="posts">
+        <div class="post-item cn-stories"><div class="post-canal">STORIES EN VIVO</div><div class="post-texto">Llegada al recinto, apertura, momentos del día</div></div>
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Post al cierre: foto + reflexión del día</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     SEMANA 4: Abr 20-26 — POST FULLDAY + CERT FLOWMASTER
+════════════════════════════════════ -->
+<div class="semana-block">
+  <div class="semana-titulo">SEMANA 4 · 20-26 ABR · Post Full Day + 🎓 Cert Flowmaster 26 + Creación Cert Liberación</div>
+  <div class="dias-grid">
+
+    <!-- Lun 20 -->
+    <div class="dia">
+      <div class="dia-num">20</div>
+      <div class="dia-nombre">Lunes</div>
+      <div class="evento-badge ev-cert-lib">Creación cert</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Post reflexivo post-evento: "Lo que me llevé del Full Day"</div></div>
+        <div class="post-item cn-email-brevo"><div class="post-canal">EMAIL BREVO</div><div class="post-texto">Email: "Gracias + grabación pase online + próximo paso: Cert Flowmaster"</div></div>
+        <div class="post-item cn-email-nas"><div class="post-canal">EMAIL NAS</div><div class="post-texto">Grabación + agradecimiento comunidad</div></div>
+      </div>
+    </div>
+
+    <!-- Mar 21 -->
+    <div class="dia">
+      <div class="dia-num">21</div>
+      <div class="dia-nombre">Martes</div>
+      <div class="evento-badge ev-flowmaster">Cert promo</div>
+      <div class="posts">
+        <div class="post-item cn-tiktok"><div class="post-canal">TIKTOK</div><div class="post-texto">Video: "¿Qué es un Flowmaster?" — intro a la certificación</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">"El 26 es la Cert Flowmaster. ¿Quieres enseñar Flowback?"</div></div>
+      </div>
+    </div>
+
+    <!-- Mié 22 -->
+    <div class="dia">
+      <div class="dia-num">22</div>
+      <div class="dia-nombre">Miércoles</div>
+      <div class="posts">
+        <div class="post-item cn-ig-flowback"><div class="post-canal">IG FLOWBACK</div><div class="post-texto">Carrusel: "Ser Flowmaster: qué significa, qué puedes hacer"</div></div>
+        <div class="post-item cn-wsp-tribu"><div class="post-canal">WSP TRIBU</div><div class="post-texto">Mensaje: "Quedan 4 días para la cert. ¿Ya te inscribiste?"</div></div>
+      </div>
+    </div>
+
+    <!-- Jue 23 -->
+    <div class="dia">
+      <div class="dia-num">23</div>
+      <div class="dia-nombre">Jueves</div>
+      <div class="posts">
+        <div class="post-item cn-ig-kira"><div class="post-canal">IG KIRA</div><div class="post-texto">Post: "Por qué decidí certificar a otros en Flowback"</div></div>
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Testimonio de Flowmaster — historia de alguien certificado</div></div>
+      </div>
+    </div>
+
+    <!-- Vie 24 -->
+    <div class="dia">
+      <div class="dia-num">24</div>
+      <div class="dia-nombre">Viernes</div>
+      <div class="posts">
+        <div class="post-item cn-email-brevo"><div class="post-canal">EMAIL BREVO</div><div class="post-texto">Email urgencia: "Cert Flowmaster domingo 26 — últimos cupos"</div></div>
+        <div class="post-item cn-wsp-grupos"><div class="post-canal">WSP GRUPOS</div><div class="post-texto">Push final: "Este domingo. Conviértete en Flowmaster"</div></div>
+      </div>
+    </div>
+
+    <!-- Sáb 25 -->
+    <div class="dia">
+      <div class="dia-num">25</div>
+      <div class="dia-nombre">Sábado</div>
+      <div class="posts">
+        <div class="post-item cn-tiktok"><div class="post-canal">TIKTOK</div><div class="post-texto">Reel urgencia: "Mañana se cierra la cert Flowmaster"</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Countdown + link directo</div></div>
+      </div>
+    </div>
+
+    <!-- Dom 26 🎓 -->
+    <div class="dia" style="border-color:rgba(196,98,26,.5);background:rgba(196,98,26,.05);">
+      <div class="dia-num" style="color:#E07840;">26</div>
+      <div class="dia-nombre">Domingo</div>
+      <div class="evento-badge ev-flowmaster" style="font-size:10px;">🎓 CERT FLOWMASTER</div>
+      <div class="posts">
+        <div class="post-item cn-stories"><div class="post-canal">STORIES EN VIVO</div><div class="post-texto">Momentos de la certificación</div></div>
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Post al cierre: nuevos Flowmasters — foto grupal</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     SEMANA 5: Abr 27-30
+════════════════════════════════════ -->
+<div class="semana-block">
+  <div class="semana-titulo">SEMANA 5 · 27-30 ABR · Cierre de mes + Siembra Mayo</div>
+  <div class="dias-grid">
+
+    <!-- Lun 27 -->
+    <div class="dia">
+      <div class="dia-num">27</div>
+      <div class="dia-nombre">Lunes</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Post reflexivo: "Cerramos abril con esto..."</div></div>
+        <div class="post-item cn-email-brevo"><div class="post-canal">EMAIL BREVO</div><div class="post-texto">Email resumen de abril + anticipo de mayo</div></div>
+      </div>
+    </div>
+
+    <!-- Mar 28 -->
+    <div class="dia">
+      <div class="dia-num">28</div>
+      <div class="dia-nombre">Martes</div>
+      <div class="evento-badge ev-cert-lib">Cert lib. emo</div>
+      <div class="posts">
+        <div class="post-item cn-tiktok"><div class="post-canal">TIKTOK</div><div class="post-texto">"¿Qué es la liberación emocional corporal?" — siembra para próximo producto</div></div>
+        <div class="post-item cn-stories"><div class="post-canal">STORIES</div><div class="post-texto">Encuesta: "¿Te interesa aprender sobre liberación emocional?"</div></div>
+      </div>
+    </div>
+
+    <!-- Mié 29 -->
+    <div class="dia">
+      <div class="dia-num">29</div>
+      <div class="dia-nombre">Miércoles</div>
+      <div class="posts">
+        <div class="post-item cn-ig-flowback"><div class="post-canal">IG FLOWBACK</div><div class="post-texto">Post comunidad: recaps del mes, agradecimientos</div></div>
+        <div class="post-item cn-wsp-tribu"><div class="post-canal">WSP TRIBU</div><div class="post-texto">Mensaje: "Viene algo nuevo en mayo — liberación emocional"</div></div>
+      </div>
+    </div>
+
+    <!-- Jue 30 -->
+    <div class="dia">
+      <div class="dia-num">30</div>
+      <div class="dia-nombre">Jueves</div>
+      <div class="posts">
+        <div class="post-item cn-ig-jimmy"><div class="post-canal">IG JIMMY</div><div class="post-texto">Teaser misterioso: "En mayo..."</div></div>
+        <div class="post-item cn-email-nas"><div class="post-canal">EMAIL NAS</div><div class="post-texto">Cierre de mes + próximos eventos mayo</div></div>
+      </div>
+    </div>
+
+    <div class="dia vacio"></div>
+    <div class="dia vacio"></div>
+    <div class="dia vacio"></div>
+
+  </div>
+</div>
+
+<!-- ════════ RESUMEN ════════ -->
+<div class="resumen">
+  <div class="resumen-card">
+    <h3>Full Day · 19 Abr</h3>
+    <ul>
+      <li>Urgencia máxima sem. 13-18</li>
+      <li>Email logístico 17 Abr</li>
+      <li>Stories diarias desde 13 Abr</li>
+      <li>Post de cierre el mismo 19</li>
+    </ul>
+  </div>
+  <div class="resumen-card">
+    <h3>Consteladora · 7-9 Abr</h3>
+    <ul>
+      <li>Pre-calentamiento 6 Abr</li>
+      <li>Lanzamiento 7 Abr (todos los canales)</li>
+      <li>Educación 8 Abr (TikTok + IG Flowback)</li>
+      <li>Cierre 9 Abr (WSP + email)</li>
+    </ul>
+  </div>
+  <div class="resumen-card">
+    <h3>Cert Flowmaster · 26 Abr</h3>
+    <ul>
+      <li>Inscripciones abren 10 Abr</li>
+      <li>Contenido educativo sem. 20-25</li>
+      <li>Urgencia final 24-25 Abr</li>
+      <li>Post de graduación 26 Abr</li>
+    </ul>
+  </div>
+  <div class="resumen-card">
+    <h3>Cert Lib. Emocional</h3>
+    <ul>
+      <li>Creación interna 20-30 Abr</li>
+      <li>Primeras semillas TikTok 28 Abr</li>
+      <li>Encuesta de interés Stories</li>
+      <li>Lanzamiento → Mayo</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
