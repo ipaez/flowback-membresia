@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contenido Semana 1 · Flowback</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0A2830;color:#EAF4F4;font-family:'DM Sans',sans-serif;padding:20px 16px 60px;}
+h1{font-size:1.4rem;font-weight:600;color:#EAF4F4;margin-bottom:4px;}
+.sub{font-size:12px;color:rgba(234,244,244,.5);margin-bottom:24px;}
+.pieza{background:#0D3D48;border:1px solid rgba(26,184,200,.15);border-radius:14px;margin-bottom:16px;overflow:hidden;}
+.pieza-header{padding:14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;}
+.pieza-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.pieza-info{flex:1;}
+.pieza-dia{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(234,244,244,.45);margin-bottom:2px;}
+.pieza-titulo{font-size:13px;font-weight:600;color:#EAF4F4;}
+.pieza-canal{font-size:10px;padding:2px 8px;border-radius:100px;margin-top:4px;display:inline-block;}
+.toggle{color:rgba(234,244,244,.4);font-size:18px;transition:transform .2s;}
+.pieza-body{display:none;padding:0 16px 16px;border-top:1px solid rgba(26,184,200,.08);}
+.pieza-body.open{display:block;}
+.toggle.open{transform:rotate(180deg);}
+pre{white-space:pre-wrap;font-family:'DM Sans',sans-serif;font-size:12px;line-height:1.7;color:rgba(234,244,244,.85);background:rgba(0,0,0,.2);padding:12px;border-radius:8px;margin:10px 0;}
+.section-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#1AB8C8;margin:12px 0 6px;}
+.nota{font-size:11px;color:rgba(234,244,244,.45);background:rgba(26,184,200,.05);border-left:2px solid rgba(26,184,200,.3);padding:8px 10px;border-radius:0 6px 6px 0;margin-top:8px;}
+.estado{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:600;margin-top:4px;}
+.pend{background:rgba(230,180,50,.12);color:#E6B432;border:1px solid rgba(230,180,50,.25);}
+
+/* CANAL COLORS */
+.cn-ig-jimmy{background:#C17F4A22;color:#C17F4A;}
+.cn-ig-flowback{background:#1AB8C822;color:#1AB8C8;}
+.cn-ig-kira{background:#C478B422;color:#C478B4;}
+.cn-stories{background:#E6B43222;color:#E6B432;}
+.cn-tiktok{background:rgba(255,255,255,.06);color:#EAF4F4;}
+.cn-email-brevo{background:#3C82D222;color:#3C82D2;}
+.cn-email-nas{background:#60B48222;color:#60B482;}
+.cn-wsp-tribu{background:#25D36622;color:#25D366;}
+.cn-wsp-grupos{background:#25D36611;color:#7AE89A;}
+
+.icon-ig{background:#C17F4A22;}
+.icon-fb{background:#1AB8C822;}
+.icon-kira{background:#C478B422;}
+.icon-st{background:#E6B43222;}
+.icon-tt{background:rgba(255,255,255,.06);}
+.icon-eb{background:#3C82D222;}
+.icon-en{background:#60B48222;}
+.icon-wt{background:#25D36622;}
+.icon-wg{background:#25D36611;}
+</style>
+</head>
+<body>
+
+<h1>Contenido · Semana 1</h1>
+<p class="sub">30 Mar – 5 Abr · Lee cada pieza y aprueba o corrígeme por WhatsApp/Telegram</p>
+
+<!-- ── 1 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-ig">🎬</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Lunes 30 Mar</div>
+      <div class="pieza-titulo">Reel — IG Jimmy</div>
+      <span class="pieza-canal cn-ig-jimmy">IG Jimmy</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Gancho (primeros 3 seg)</div>
+    <pre>"¿Sabes por qué tu cuerpo no descansa aunque tu mente quiera?"</pre>
+    <div class="section-label">Desarrollo (hablar a cámara)</div>
+    <pre>"El estrés no es solo mental. Se instala en tu cuerpo. En tus músculos. En tu respiración. En cómo te mueves.
+
+La mayoría de las personas viven en un estado de alerta constante... y ni siquiera lo saben.
+
+Yo lo viví. Y fue el cuerpo el que me lo dijo primero."</pre>
+    <div class="section-label">CTA</div>
+    <pre>"El 19 de abril en Paine vamos a trabajar exactamente esto. Un día completo para que tu cuerpo finalmente hable — y tú finalmente escuches.
+
+El link está en mi bio."</pre>
+    <div class="section-label">Caption</div>
+    <pre>Tu cuerpo lleva demasiado tiempo sosteniendo todo.
+
+El estrés no vive solo en la cabeza — vive en los músculos que no sueltan, en la respiración que se corta, en el sueño que no repara.
+
+El 19 de abril en Paine armé un día completo para cambiar eso. Con herramientas reales. Con ciencia detrás. Con personas que van a acompañar ese proceso.
+
+Presencial en Paine o desde donde estés (pase online $10 USD).
+
+Link en bio 🔗</pre>
+    <div class="nota">📌 Grabar en interior con luz cálida. Sin guión en mano. Subtítulos automáticos en IG.</div>
+  </div>
+</div>
+
+<!-- ── 2 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-st">📱</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Lunes 30 Mar</div>
+      <div class="pieza-titulo">Stories — Countdown + Encuesta</div>
+      <span class="pieza-canal cn-stories">Stories</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Slide 1 — Countdown</div>
+    <pre>19 DE ABRIL · PAINE, CHILE
+Ya falta poco.
+
+[Sticker countdown apuntando al 19 Abr 10:30 AM]
+[Botón link: "Reservar mi lugar →"]</pre>
+    <div class="section-label">Slide 2 — Pregunta</div>
+    <pre>¿Cuándo fue la última vez que
+tu cuerpo descansó de verdad?
+
+No dormiste.
+DESCANSASTE.
+
+[Encuesta: "Hace mucho tiempo" / "No recuerdo"]</pre>
+    <div class="section-label">Slide 3 — CTA</div>
+    <pre>El 19 de abril en Paine
+vamos a trabajar exactamente eso.
+
+👆 Link en bio</pre>
+  </div>
+</div>
+
+<!-- ── 3 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-eb">📧</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Martes 31 Mar</div>
+      <div class="pieza-titulo">Email — Brevo (lista completa)</div>
+      <span class="pieza-canal cn-email-brevo">Email Brevo</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Asunto (elige uno)</div>
+    <pre>1. "El 19 de abril — lo que va a pasar ese día"
+2. "Hoy termina el precio especial del Full Day"
+3. "Para ti, el 19 de abril en Paine"</pre>
+    <div class="section-label">Cuerpo del email</div>
+    <pre>Hola [nombre],
+
+Hace unos días te conté del Full Day del 19 de abril en Paine.
+
+Hoy quiero contarte exactamente qué va a pasar ese día — porque no es solo "un evento de bienestar".
+
+EL PROGRAMA:
+🕥 10:30 — Apertura y master class "Ritual de poder corporal" (Jimmy y Kira)
+🧠 11:30 — Meditación del corazón e hipnosis de reprogramación
+💬 12:00 — Charla: El lenguaje emocional del cuerpo
+🍽️ 13:00 — Pausa / almuerzo
+🔬 15:00 — Dr. Rodolfo Neira: La mitocondria y el estrés
+🎶 16:00 — Movimiento: baile o yoga con Raúl Power
+🌿 17:00 — Daniela Carrasco: Lealtades invisibles con los ancestros
+
+Un día completo. Ocho horas. Todo conectado.
+
+¿No puedes venir presencialmente?
+Tienes el Pase Online por $10 USD — ves todo en Zoom en vivo y te quedas con la grabación completa.
+
+HOY ES EL ÚLTIMO DÍA de precio preventa.
+
+→ Reservar presencial: [link]
+→ Pase Online $10 USD: [link]
+
+Nos vemos el 19.
+Jimmy
+
+P.D. Si ya estás inscrito, reenvía esto a alguien que necesite este día.</pre>
+    <div class="nota">📌 Hora de envío: 9:00 AM. Botón principal → landing fullday.</div>
+  </div>
+</div>
+
+<!-- ── 4 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-wt">💬</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Martes 31 Mar</div>
+      <div class="pieza-titulo">WhatsApp Tribu</div>
+      <span class="pieza-canal cn-wsp-tribu">WSP Tribu</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Mensaje</div>
+    <pre>Hola a todos 👋
+
+Hoy es el último día con el precio especial para el Full Day del 19 de abril en Paine.
+
+Si ya lo tienes en mente y solo necesitabas el empujón — este es el momento.
+
+Presencial: desde $28.000 CLP
+Online (Zoom + grabación): $10 USD
+
+👉 https://ipaez.github.io/flowback-membresia/fullday.html
+
+Nos vemos el 19 🌿</pre>
+    <div class="nota">📌 Enviar a las 10:00 AM o 19:00 PM. Breve y directo convierte más en WhatsApp.</div>
+  </div>
+</div>
+
+<!-- ── 5 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-fb">🎠</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Miércoles 1 Abr</div>
+      <div class="pieza-titulo">Carrusel — IG Flowback (6 slides)</div>
+      <span class="pieza-canal cn-ig-flowback">IG Flowback</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Slide 1 — Portada</div>
+    <pre>CONOCE A QUIENES VAN A ACOMPAÑARTE
+19 DE ABRIL · PAINE</pre>
+    <div class="section-label">Slide 2 — Jimmy & Kira</div>
+    <pre>JIMMY LAVIN & KIRA HUBERMAN
+Creadores de Flowback.
+600+ instructores certificados. 2.300+ alumnos.
+
+"Ritual de poder corporal" + Meditación e hipnosis</pre>
+    <div class="section-label">Slide 3 — Dr. Rodolfo Neira</div>
+    <pre>DR. RODOLFO NEIRA
+Médico especialista.
+La ciencia detrás del estrés y la energía celular.
+
+"La mitocondria y el estrés"</pre>
+    <div class="section-label">Slide 4 — Daniela Carrasco</div>
+    <pre>DANIELA CARRASCO
+Consteladora sistémica.
+Trabaja con lo que heredamos sin saberlo.
+
+"Lealtades invisibles con los ancestros"</pre>
+    <div class="section-label">Slide 5 — Aliados</div>
+    <pre>Y TAMBIÉN ESTARÁN...
+Álvaro Norambuena · Astrólogo
+Mario Naranjo · Relaciones y salud emocional
+Sol Evans · Inmersión en hielo
+Raúl Power · Movimiento y danza</pre>
+    <div class="section-label">Slide 6 — CTA</div>
+    <pre>UN DÍA. OCHO HORAS. TODO CONECTADO.
+19 DE ABRIL · PAINE
+
+Presencial desde $28.000 CLP
+Online $10 USD
+🔗 Link en bio</pre>
+    <div class="section-label">Caption</div>
+    <pre>Cada expositor fue elegido porque trabaja con el cuerpo de una manera diferente.
+
+Juntos arman algo que no puedes encontrar en un solo lugar.
+
+El 19 de abril en Paine. Presencial o desde donde estés (pase online $10 USD).
+
+Link en bio 🔗</pre>
+  </div>
+</div>
+
+<!-- ── 6 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-tt">🎵</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Miércoles 1 Abr</div>
+      <div class="pieza-titulo">TikTok — Siembra Consteladora</div>
+      <span class="pieza-canal cn-tiktok">TikTok</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Gancho</div>
+    <pre>"¿Alguna vez repetiste el mismo patrón que tu mamá o tu papá y no sabes por qué?"</pre>
+    <div class="section-label">Desarrollo</div>
+    <pre>"Eso se llama lealtad invisible. Una forma inconsciente de conectarte con tu familia.
+
+Y no lo decides tú. Lo decide algo mucho más profundo.
+
+Las constelaciones familiares trabajan exactamente eso. No es magia. No es esoterismo. Es un proceso para ver lo que no se ve — y soltar lo que no es tuyo."</pre>
+    <div class="section-label">Cierre</div>
+    <pre>"La semana que viene tengo algo especial con una consteladora increíble. Si esto te resonó, quédate por acá."</pre>
+    <div class="nota">📌 Tono curioso, no académico. Sin edición compleja — autenticidad funciona mejor en TikTok.</div>
+  </div>
+</div>
+
+<!-- ── 7 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-kira">💜</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Jueves 2 Abr</div>
+      <div class="pieza-titulo">Post — IG Kira</div>
+      <span class="pieza-canal cn-ig-kira">IG Kira</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Caption (voz de Kira)</div>
+    <pre>Cuando Jimmy me propuso armar el Full Day, lo primero que pensé fue: ¿qué es lo que más necesita la gente en este momento?
+
+Y la respuesta fue siempre la misma: un espacio donde el cuerpo pueda hablar.
+
+No un taller más de información. No otro curso.
+
+Un día donde tu cuerpo pueda soltar lo que lleva sosteniendo — con acompañamiento real, con ciencia detrás, con personas que entienden que sanar no es lineal.
+
+Eso es lo que armamos para el 19 de abril en Paine.
+
+Yo voy a estar facilitando la meditación del corazón y la hipnosis de reprogramación.
+
+Es uno de los momentos que más me mueven de todo el día.
+
+Si sientes que esto es para ti, el link está en mi bio 🌿</pre>
+    <div class="nota">📌 Publicar desde cuenta de Kira. Taggear @jimmylavin y @flowbackfitness</div>
+  </div>
+</div>
+
+<!-- ── 8 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-st">📱</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Jueves 2 Abr</div>
+      <div class="pieza-titulo">Stories — Encuesta</div>
+      <span class="pieza-canal cn-stories">Stories</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Slide 1</div>
+    <pre>¿Cuándo sientes que tienes
+emociones atrapadas en tu cuerpo?
+
+[Encuesta: "Todo el tiempo" / "A veces"]</pre>
+    <div class="section-label">Slide 2 (publicar después de ver respuestas)</div>
+    <pre>Exactamente para eso es el
+Full Day del 19 de abril.
+
+Un espacio para soltarlo.
+
+👆 Link en bio</pre>
+  </div>
+</div>
+
+<!-- ── 9 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-ig">✍️</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Viernes 3 Abr</div>
+      <div class="pieza-titulo">Post — IG Jimmy (Daniela Carrasco)</div>
+      <span class="pieza-canal cn-ig-jimmy">IG Jimmy</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Caption</div>
+    <pre>Hay cosas que repetimos sin querer.
+
+Relaciones que siguen el mismo patrón. Dolores que no tienen explicación lógica. Límites que no podemos cruzar aunque queramos.
+
+A veces no son nuestros. Son de alguien antes de nosotros.
+
+El 19 de abril en Paine va a estar Daniela Carrasco — consteladora sistémica — facilitando un espacio para ver exactamente eso.
+
+"Lealtades invisibles con los ancestros."
+
+No es un concepto abstracto. Es algo que vive en tu cuerpo y en tus decisiones todos los días.
+
+Venir presencial o unirte online. Los detalles en mi bio 🔗</pre>
+    <div class="nota">📌 Taggear a Daniela Carrasco si tiene IG.</div>
+  </div>
+</div>
+
+<!-- ── 10 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-wg">💬</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Viernes 3 Abr</div>
+      <div class="pieza-titulo">WhatsApp Grupos</div>
+      <span class="pieza-canal cn-wsp-grupos">WSP Grupos</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Mensaje</div>
+    <pre>Hola a todos 👋
+
+Quedan menos de 3 semanas para el Full Day del 19 de abril en Paine.
+
+Un día completo con 7 expositores trabajando el cuerpo, las emociones y la energía — todo en un solo espacio.
+
+Si no puedes venir presencialmente, hay un pase online por $10 USD donde ves todo en vivo y te quedas con la grabación.
+
+👉 https://ipaez.github.io/flowback-membresia/fullday.html
+
+Nos vemos el 19 🌿</pre>
+  </div>
+</div>
+
+<!-- ── 11 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-tt">🎵</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Sábado 4 Abr</div>
+      <div class="pieza-titulo">TikTok — El estrés en el cuerpo</div>
+      <span class="pieza-canal cn-tiktok">TikTok</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Gancho</div>
+    <pre>"Te enseñaron que el estrés es malo. Pero nadie te enseñó dónde vive en tu cuerpo."</pre>
+    <div class="section-label">Desarrollo</div>
+    <pre>"El estrés no desaparece cuando termina la situación estresante. Se queda. En tus hombros. En tu mandíbula. En tu respiración.
+
+Eso es porque tu sistema nervioso no distingue entre un peligro real y una reunión difícil en el trabajo.
+
+Activa la misma respuesta. Y si no la procesas, se acumula.
+
+Eso explica el cansancio crónico. La tensión que no baja. El sueño que no repara."</pre>
+    <div class="section-label">Cierre</div>
+    <pre>"Hay maneras de cambiar eso. Con el cuerpo. No solo con la mente.
+
+Si quieres saber más, sígueme — eso es exactamente lo que enseñamos en Flowback."</pre>
+  </div>
+</div>
+
+<!-- ── 12 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-st">📱</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Domingo 5 Abr</div>
+      <div class="pieza-titulo">Stories — Teaser semana 2</div>
+      <span class="pieza-canal cn-stories">Stories</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Slide 1 — Frase</div>
+    <pre>"Tu cuerpo no miente.
+Aprender a escucharlo
+es el primer acto de autocuidado real."
+
+— Jimmy Lavin</pre>
+    <div class="section-label">Slide 2 — Teaser (NO revelar qué es)</div>
+    <pre>Esta semana pasa algo
+que llevo tiempo preparando.
+
+Con alguien muy especial.
+
+Quédate por acá 👀</pre>
+  </div>
+</div>
+
+<!-- ── 13 ── -->
+<div class="pieza">
+  <div class="pieza-header" onclick="toggle(this)">
+    <div class="pieza-icon icon-en">📧</div>
+    <div class="pieza-info">
+      <div class="pieza-dia">Domingo 5 Abr</div>
+      <div class="pieza-titulo">Email — Nas (comunidad)</div>
+      <span class="pieza-canal cn-email-nas">Email Nas</span>
+      <div><span class="estado pend">⏳ Pendiente</span></div>
+    </div>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="pieza-body">
+    <div class="section-label">Asunto</div>
+    <pre>Esta semana pasa algo especial en Flowback</pre>
+    <div class="section-label">Preview text</div>
+    <pre>Llevo tiempo preparando esto. Te cuento el lunes.</pre>
+    <div class="section-label">Cuerpo</div>
+    <pre>Hola [nombre],
+
+Quería escribirte antes de que empiece la semana.
+
+Esta semana lanzamos algo que estuve preparando hace tiempo — y creo que va a resonar mucho con quienes están en esta comunidad.
+
+No te cuento todavía. Pero si estás por acá es porque te importa el bienestar, el cuerpo y el trabajo emocional.
+
+Y esto tiene mucho que ver con eso.
+
+Cuídate este fin de semana. Nos vemos el lunes.
+
+Jimmy</pre>
+    <div class="nota">📌 Email corto — no poner link de venta todavía. Solo crear anticipación. Enviar 18:00 PM.</div>
+  </div>
+</div>
+
+<script>
+function toggle(header){
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('.toggle');
+  body.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+</script>
+</body>
+</html>
