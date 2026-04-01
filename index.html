@@ -1316,12 +1316,12 @@
   <section class="proof-strip">
     <div class="proof-strip-inner">
       <div class="stat reveal">
-        <div class="stat-number">7 años</div>
+        <div class="stat-number">8 años</div>
         <div class="stat-label">De experiencia</div>
       </div>
       <div class="stat reveal reveal-delay-2">
-        <div class="stat-number">7 días/sem</div>
-        <div class="stat-label">Clases en vivo</div>
+        <div class="stat-number counter" data-target="2987">0</div>
+        <div class="stat-label">Alumnos activos</div>
       </div>
       <div class="press-block reveal reveal-delay-3">
         <span class="press-label">Lo has visto en</span>
@@ -2034,6 +2034,30 @@ if (counterEl) {
   }, { threshold: 0.5 });
   obs.observe(counterEl);
 }
+
+// Counter animation for alumnos activos
+document.querySelectorAll('.counter').forEach(counter => {
+  const target = +counter.getAttribute('data-target');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        let current = 0;
+        const increment = target / 100;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            counter.textContent = target.toLocaleString('es-CL');
+            clearInterval(timer);
+          } else {
+            counter.textContent = Math.floor(current).toLocaleString('es-CL');
+          }
+        }, 20);
+        obs.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.5 });
+  obs.observe(counter);
+});
 </script>
 </body>
 </html>
