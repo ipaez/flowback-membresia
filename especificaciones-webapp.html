@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Especificaciones WebApp Flowback</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: #d946ef;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      border-bottom: 4px solid #d946ef;
+      padding-bottom: 15px;
+    }
+    
+    h2 {
+      color: #d946ef;
+      font-size: 1.8rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-left: 4px solid #d946ef;
+      padding-left: 15px;
+    }
+    
+    h3 {
+      color: #555;
+      font-size: 1.3rem;
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+    
+    h4 {
+      color: #666;
+      font-size: 1.1rem;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #f9f9f9;
+    }
+    
+    th {
+      background: #d946ef;
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    tr:hover {
+      background: #f0f0f0;
+    }
+    
+    code, pre {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.9rem;
+    }
+    
+    pre {
+      padding: 15px;
+      overflow-x: auto;
+      border-left: 4px solid #d946ef;
+    }
+    
+    ul, ol {
+      margin: 15px 0 15px 30px;
+    }
+    
+    li {
+      margin-bottom: 8px;
+    }
+    
+    .header-meta {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      border-left: 4px solid #d946ef;
+    }
+    
+    .header-meta p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+    
+    .highlight {
+      background: #fff3cd;
+      padding: 15px;
+      border-left: 4px solid #ffc107;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: #d946ef;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    
+    .success {
+      background: #28a745;
+    }
+    
+    .warning {
+      background: #ffc107;
+      color: #333;
+    }
+    
+    .page-break {
+      page-break-after: always;
+      margin: 40px 0;
+    }
+    
+    @media print {
+      body {
+        padding: 0;
+      }
+      h1, h2 {
+        page-break-after: avoid;
+      }
+      table {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>📱 ESPECIFICACIONES TÉCNICAS</h1>
+<h2 style="border: none; margin-top: 0; padding: 0; color: #666; font-size: 1.5rem;">WebApp Flowback - Captación de Clientes para Webinars</h2>
+
+<div class="header-meta">
+  <p><strong>Documento:</strong> Especificaciones para Diseñador/Desarrollador de WebApps</p>
+  <p><strong>Fecha:</strong> Abril 2026</p>
+  <p><strong>Versión:</strong> 1.0</p>
+  <p><strong>Cliente:</strong> Jimmy Lavin / Flowback Fitness</p>
+  <p><strong>Timeline:</strong> Abril 2026 (Urgente)</p>
+</div>
+
+---
+
+<h2>🎯 RESUMEN EJECUTIVO</h2>
+
+<p><strong>Objetivo:</strong> Crear una WebApp (Progressive Web App) que centralice contenido, webinars, grupos WhatsApp y notificaciones push, con dos tiers de acceso (Free + Premium $20 USD) integrada con PayPal, transferencias bancarias y email automation en Brevo.</p>
+
+<p><strong>Impacto:</strong> Convertir followers de Instagram (via ManyChat) en usuarios activos, retenerlos con notificaciones diarias y monetizar con acceso Premium.</p>
+
+---
+
+<h2>📊 ESTRUCTURA DEL PRODUCTO</h2>
+
+<h3>Dos Versiones de la App:</h3>
+
+<table>
+  <tr>
+    <th>Aspecto</th>
+    <th>FREE</th>
+    <th>PREMIUM ($20 USD)</th>
+  </tr>
+  <tr>
+    <td><strong>Videos</strong></td>
+    <td>Preview (seleccionados)</td>
+    <td>Todos (Vimeo completo)</td>
+  </tr>
+  <tr>
+    <td><strong>Webinars</strong></td>
+    <td>Info + link YouTube</td>
+    <td>Acceso Zoom full</td>
+  </tr>
+  <tr>
+    <td><strong>Documentos</strong></td>
+    <td>1-2 PDFs</td>
+    <td>Todos (Drive)</td>
+  </tr>
+  <tr>
+    <td><strong>WhatsApp</strong></td>
+    <td>Grupo FREE</td>
+    <td>Grupo VIP</td>
+  </tr>
+  <tr>
+    <td><strong>Push Notif</strong></td>
+    <td>Sí</td>
+    <td>Sí</td>
+  </tr>
+  <tr>
+    <td><strong>Precio</strong></td>
+    <td>Gratis</td>
+    <td>$20 USD</td>
+  </tr>
+</table>
+
+---
+
+<h2>🔄 FLUJO DE USUARIO</h2>
+
+<h3>SIGNUP (Ambos Tiers)</h3>
+<pre>1. Usuario entra desde ManyChat → Landing → Webapp (PWA)
+2. Selecciona: "Acceso Free" o "Acceso Premium $20"
+3. Si FREE → Regístrate (email + contraseña)
+4. Si PREMIUM → PayPal/Transferencia → Confirma compra → Acceso inmediato/24h
+5. App envía email a Brevo con tier (FREE/VIP)
+6. Brevo dispara flujo de automatización correspondiente
+7. Usuario entra a webapp con credenciales
+8. OPCIONAL: Instala en pantalla principal (sin ir a App Store)</pre>
+
+<h3>DENTRO DE LA APP (FREE)</h3>
+<pre>Dashboard
+├── Próximos Webinars (fecha, hora, tema, descripción, link YouTube)
+├── Videos Preview (3-5 seleccionados)
+├── Documentos (1-2 PDFs)
+├── Grupo WhatsApp Free (botón que abre link)
+├── Perfil (editar datos, cambiar contraseña)
+└── Configuración (notificaciones push, idioma, tema)</pre>
+
+<h3>DENTRO DE LA APP (PREMIUM)</h3>
+<pre>Dashboard
+├── Todos los Webinars (fecha, hora, tema, descripción, link ZOOM)
+├── Todos los Videos (Vimeo embebido o link)
+├── Todos los Documentos (Drive PDFs)
+├── Grupo WhatsApp VIP (botón que abre link)
+├── Mi Progreso (qué videos viste, cuándo, % completado)
+├── Perfil (editar datos, cancelar membresía)
+└── Configuración (notificaciones push, idioma, tema)</pre>
+
+---
+
+<h2>🎥 CONTENIDO & ALMACENAMIENTO</h2>
+
+<table>
+  <tr>
+    <th>Tipo</th>
+    <th>Ubicación</th>
+    <th>Reproducción</th>
+    <th>Acceso</th>
+  </tr>
+  <tr>
+    <td><strong>Videos</strong></td>
+    <td>Vimeo</td>
+    <td>Link externo o embed</td>
+    <td>Por tier</td>
+  </tr>
+  <tr>
+    <td><strong>Documentos</strong></td>
+    <td>Google Drive</td>
+    <td>Link descargable</td>
+    <td>Por tier</td>
+  </tr>
+  <tr>
+    <td><strong>Webinars (YouTube)</strong></td>
+    <td>YouTube</td>
+    <td>Link (FREE solo info)</td>
+    <td>Públicos</td>
+  </tr>
+  <tr>
+    <td><strong>Webinars (Zoom)</strong></td>
+    <td>Zoom</td>
+    <td>Link (PREMIUM acceso full)</td>
+    <td>Privados</td>
+  </tr>
+</table>
+
+---
+
+<h2>🔔 NOTIFICACIONES PUSH</h2>
+
+<table>
+  <tr>
+    <th>Evento</th>
+    <th>Frecuencia</th>
+    <th>Mensaje</th>
+    <th>Destino</th>
+  </tr>
+  <tr>
+    <td>Webinar comienza en 1h</td>
+    <td>Una vez</td>
+    <td>Tu webinar empieza en 1 hora</td>
+    <td>Ambos tiers</td>
+  </tr>
+  <tr>
+    <td>Webinar comienza en 24h</td>
+    <td>Una vez</td>
+    <td>¿Preparada? Tu webinar es mañana</td>
+    <td>Ambos tiers</td>
+  </tr>
+  <tr>
+    <td>Nuevo video disponible</td>
+    <td>Al subir</td>
+    <td>Nuevo video: [Título]</td>
+    <td>PREMIUM solo</td>
+  </tr>
+  <tr>
+    <td>No entras hace 3 días</td>
+    <td>Diaria</td>
+    <td>Te echamos de menos - vuelve</td>
+    <td>Ambos tiers</td>
+  </tr>
+  <tr>
+    <td>Nuevo mensaje WhatsApp</td>
+    <td>Al llegar</td>
+    <td>Nuevo mensaje en grupo WhatsApp</td>
+    <td>Ambos tiers</td>
+  </tr>
+  <tr>
+    <td>Contenido diario</td>
+    <td>09:00 AM</td>
+    <td>Hoy: [Contenido del día]</td>
+    <td>PREMIUM solo</td>
+  </tr>
+</table>
+
+<p><strong>Máximo notificaciones:</strong> 3 por día</p>
+
+---
+
+<h2>💳 PAGOS & AUTENTICACIÓN</h2>
+
+<h3>Opción 1: PayPal</h3>
+<pre>1. Usuario clickea "Acceso Premium $20"
+2. Redirige a PayPal (checkout embebido)
+3. Paga $20 USD
+4. PayPal confirma pago → Webhook a servidor
+5. Sistema crea credenciales usuario
+6. Email de confirmación vía Brevo
+7. Acceso inmediato a contenido PREMIUM</pre>
+
+<h3>Opción 2: Transferencia Bancaria</h3>
+<pre>1. Usuario selecciona "Transferencia Bancaria"
+2. App muestra: número de cuenta, banco, monto, código de referencia
+3. Usuario transfiere + envía comprobante por email
+4. TÚ recibes comprobante
+5. TÚ activas manualmente en dashboard (24h máx)
+6. Sistema envía credenciales vía email
+7. Usuario accede a PREMIUM</pre>
+
+<h3>Autenticación</h3>
+<ul>
+  <li><strong>Método:</strong> Email + Contraseña simple</li>
+  <li><strong>Recuperación:</strong> "Olvidé contraseña" → Email con link reset</li>
+  <li><strong>Persistencia:</strong> Login session (30 días)</li>
+</ul>
+
+---
+
+<h2>📧 INTEGRACIÓN BREVO (EMAIL AUTOMATION)</h2>
+
+<h3>Flujo Automático:</h3>
+<pre>App envía a Brevo:
+├── Email
+├── Nombre
+├── Tier (FREE o VIP)
+└── Fecha de registro
+
+Brevo dispara secuencias:
+├── Si FREE:
+│   ├── Email 1: Bienvenida (día 0)
+│   ├── Email 2: Primeros pasos (día 1)
+│   ├── Email 3: Próximo webinar (día 3)
+│   └── Email 4: "Upgrade a VIP" (día 7)
+│
+└── Si VIP:
+    ├── Email 1: Bienvenida VIP (inmediato)
+    ├── Email 2: Guía de acceso Zoom (día 0)
+    ├── Email 3: Próximo webinar VIP (día 1)
+    └── Email 4: Recordatorio de contenido (día 7)</pre>
+
+---
+
+<h2>📱 GRUPOS WHATSAPP</h2>
+
+<table>
+  <tr>
+    <th>Grupo</th>
+    <th>Tipo</th>
+    <th>Acceso</th>
+  </tr>
+  <tr>
+    <td><strong>Flowback FREE</strong></td>
+    <td>Público</td>
+    <td>Para FREE</td>
+  </tr>
+  <tr>
+    <td><strong>Flowback VIP</strong></td>
+    <td>Privado</td>
+    <td>Para PREMIUM</td>
+  </tr>
+</table>
+
+---
+
+<h2>📊 DASHBOARD ADMIN (Para Ti)</h2>
+
+<h3>Métricas Principales:</h3>
+
+<ul>
+  <li><strong>KPIs Diarios:</strong> Nuevos usuarios, ingresos, conversión, usuarios activos</li>
+  <li><strong>Análisis de Contenido:</strong> Videos más vistos, tiempo de uso, webinars con más asistencia</li>
+  <li><strong>Finanzas:</strong> PayPal, transferencias, ingresos acumulados</li>
+  <li><strong>Usuarios:</strong> Total registrados, actividad, retención, churn</li>
+</ul>
+
+<h3>Acciones desde Dashboard:</h3>
+
+<ul>
+  <li>Confirmar transferencias</li>
+  <li>Activar usuario PREMIUM manualmente</li>
+  <li>Ver lista de emails para sincronizar Brevo</li>
+  <li>Ver logs de pagos PayPal</li>
+  <li>Editar contenido (webinars, videos)</li>
+</ul>
+
+---
+
+<h2>🛠️ INTEGRACIONES TÉCNICAS</h2>
+
+<table>
+  <tr>
+    <th>Servicio</th>
+    <th>Función</th>
+    <th>Datos que Envía</th>
+  </tr>
+  <tr>
+    <td><strong>PayPal</strong></td>
+    <td>Procesar pagos $20</td>
+    <td>Email, monto, confirmación</td>
+  </tr>
+  <tr>
+    <td><strong>Brevo</strong></td>
+    <td>Email automation</td>
+    <td>Email, nombre, tier, fecha</td>
+  </tr>
+  <tr>
+    <td><strong>Vimeo</strong></td>
+    <td>Hosting videos</td>
+    <td>URLs embebidas</td>
+  </tr>
+  <tr>
+    <td><strong>Google Drive</strong></td>
+    <td>Hosting documentos</td>
+    <td>URLs descargables</td>
+  </tr>
+  <tr>
+    <td><strong>YouTube</strong></td>
+    <td>Webinars públicos</td>
+    <td>URLs de videos</td>
+  </tr>
+  <tr>
+    <td><strong>Zoom</strong></td>
+    <td>Webinars VIP</td>
+    <td>URLs de sesiones</td>
+  </tr>
+  <tr>
+    <td><strong>WhatsApp</strong></td>
+    <td>Links de grupos</td>
+    <td>(solo URL, sin API)</td>
+  </tr>
+</table>
+
+---
+
+<h2>📅 TIMELINE & FASES</h2>
+
+<h3>MVP (Abril 2026):</h3>
+<ul>
+  <li>PWA funcional (login + contenido + PayPal)</li>
+  <li>2 tiers (Free/VIP)</li>
+  <li>Notificaciones push básicas</li>
+  <li>Integración PayPal + Transferencias</li>
+  <li>Email a Brevo</li>
+  <li>Dashboard admin</li>
+</ul>
+
+<h3>Fase 2 (Mayo 2026):</h3>
+<ul>
+  <li>Analytics avanzados (heatmaps, user behavior)</li>
+  <li>Comunidad (comentarios, ratings en videos)</li>
+  <li>Sistema de progreso mejorado</li>
+</ul>
+
+---
+
+<h2>✅ CHECKLIST DE REQUERIMIENTOS</h2>
+
+<h3>MUST HAVE (MVP):</h3>
+<ul>
+  <li>☑ Login/Signup (email + contraseña)</li>
+  <li>☑ Dos tiers (Free + Premium)</li>
+  <li>☑ Dashboard con contenido según tier</li>
+  <li>☑ PayPal integrado</li>
+  <li>☑ Transferencias (con confirmación manual)</li>
+  <li>☑ Push notifications (diarias)</li>
+  <li>☑ Email a Brevo automático</li>
+  <li>☑ Grupo WhatsApp (botón de acceso)</li>
+  <li>☑ Dashboard admin (métricas + confirmar pagos)</li>
+  <li>☑ Dark/light mode</li>
+  <li>☑ Mobile responsive</li>
+</ul>
+
+---
+
+<div class="highlight">
+  <strong>Documento Listo para Compartir con Desarrollador/Agencia</strong><br>
+  Este documento contiene toda la información necesaria para que un equipo de desarrollo comience el proyecto sin consultas adicionales.
+</div>
+
+<p style="margin-top: 40px; text-align: center; color: #999; font-size: 0.9rem;">
+  Documento creado: Abril 2026 | Versión: 1.0 | Estado: Listo para presentar a desarrollador/agencia
+</p>
+
+</body>
+</html>
