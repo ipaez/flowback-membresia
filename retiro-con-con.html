@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retiro Flowback — Concón 2026</title>
+  <script src="https://cdn.tailwindcss.com">
+    // Hide fallback when video loads or plays
+    const heroVideo = document.querySelector('.hero-video');
+    const heroFallback = document.querySelector('.hero-fallback');
+    if (heroVideo && heroFallback) {
+      heroVideo.addEventListener('loadeddata', () => {
+        heroFallback.style.display = 'none';
+        heroVideo.classList.add('loaded');
+      });
+      heroVideo.addEventListener('play', () => {
+        heroFallback.style.display = 'none';
+        heroVideo.classList.add('loaded');
+      });
+      heroVideo.addEventListener('error', () => {
+        // Keep fallback visible on error
+        heroFallback.style.opacity = '1';
+      });
+    }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #004E64;
+      --primary-light: #007A8C;
+      --accent: #FF8551;
+      --accent-light: #FFD166;
+      --text: #1E3A4A;
+      --light: #F0F4F8;
+      --warm-white: #E8F0F5;
+    }
+    
+    * { font-family: 'DM Sans', sans-serif; }
+    .font-display { font-family: 'Cormorant Garamond', serif; }
+    
+    body { background: var(--light); color: var(--primary); }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .bg-warm-gradient { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); }
+    
+    .card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 78, 100, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 78, 100, 0.06);
+    }
+    
+    .cta-button {
+      background: var(--accent);
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(255, 133, 81, 0.35); }
+    
+    .section { min-height: auto; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
+    @media (max-width: 768px) { .section { padding: 4rem 1.5rem; } }
+    
+    .hero-image {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center; z-index: 0;
+    }
+    .hero-image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(250,247,242,0.1) 0%, rgba(250,247,242,0.85) 100%);
+    }
+      .hero-fallback { display: block; }
+  .hero-video:not([src]) ~ .hero-fallback,
+  .hero-video.error ~ .hero-fallback { display: block; }
+  video.hero-video.loaded ~ .hero-fallback { display: none; }
+.hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(250,247,242,0.2) 0%, rgba(250,247,242,0.85) 100%);
+    }
+    .hero-content {
+      opacity: 0; animation: fadeInContent 1s ease-out 1s forwards;
+    }
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .content { position: relative; z-index: 10; }
+    
+    .price-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    .price-card.featured { border-color: var(--accent); box-shadow: 0 0 40px rgba(255, 133, 81, 0.2); }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--primary-light), transparent);
+      opacity: 0.5;
+    }
+    
+    /* Dark sections */
+    .section-dark { background: var(--primary) !important; }
+    .section-dark h2, .section-dark h3, .section-dark p, .section-dark li { color: var(--light) !important; }
+    .section-dark .text-muted { color: var(--sage) !important; }
+    .section-dark .text-[var(--sage)] { color: var(--light) !important; }
+    .section-dark .text-[var(--sand)] { color: var(--accent-light) !important; }
+    .section-dark .text-[var(--primary)] { color: var(--light) !important; }
+    .section-dark .text-[var(--accent-light)] { color: var(--sage) !important; }
+    
+    @media print { body { background: white; color: black; } .section { min-height: auto; page-break-after: always; } }
+  </style>
+</head>
+<body>
+
+<!-- COVER - HERO -->
+<section class="section relative overflow-hidden">
+  <video class="hero-video" autoplay muted loop playsinline playsonchrome preload="auto">
+      <source src="images/retiro/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-fallback" style="position:absolute;inset:0;background:url('images/retiro/flowback-04-grupo.jpg') center/cover;z-index:0;"></div>
+    <div class="hero-overlay"></div>
+  <div class="content hero-content text-center max-w-5xl mx-auto w-full" style="padding-top: 2vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; position: relative; z-index: 2;">
+    
+    <p class="text-[var(--accent)] text-xl tracking-widest uppercase mb-4 font-medium">Retiro</p>
+    
+    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      Sanando del<br>
+      <span class="gradient-text">Cuerpo al Alma</span>
+    </h1>
+    
+    <p class="text-lg md:text-xl text-[var(--light)] mb-6 max-w-2xl mx-auto opacity-90">
+      <span class="text-[#004E64]">Tres días para rejuvenecer el cuerpo con movimiento, liberar la carga emocional y volver a habitar tu cuerpo con confianza.</span>
+    </p>
+    
+    <p class="text-[var(--primary)] text-xl font-semibold mt-8">28 - 30 Agosto</p>
+  </div>
+</section>
+
+<!-- DESCRIPTION -->
+<section class="section section-dark">
+  <div class="content max-w-4xl mx-auto text-center px-6">
+    <p class="text-[var(--sage)] text-lg md:text-xl leading-relaxed mb-6">
+      Tu cuerpo lleva años acumulando estrés, emociones reprimidas y dolores que pesan día a día.
+    </p>
+    <p class="text-[var(--sage)] text-lg md:text-xl leading-relaxed mb-6">
+      Frente al mar de Concón —donde el sistema nervioso baja la guardia— haremos lo que en la ciudad parece imposible: regular, liberar, integrar.
+    </p>
+    <p class="text-[var(--sage)] text-lg md:text-xl leading-relaxed mb-6">
+      Tres días de movimiento consciente, respiración y trabajo somático. Una metodología que une neurociencia y sabiduría corporal para que salgas con un cuerpo que volvió a sentirse en casa.
+    </p>
+    <p class="text-[var(--accent)] text-xl md:text-2xl font-semibold leading-relaxed mt-6">
+      Esto no es una pausa de tu vida. Es el momento en que tu vida vuelve a ti.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section section-dark">
+  <div class="content max-w-4xl mx-auto">
+    <div class="divider mb-10"></div>
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-center mb-8">
+      Qué <span class="gradient-text">Incluye</span>
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="flex items-start gap-5">
+        <div class="w-10 h-10 bg-[rgba(255, 133, 81,0.15)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <span class="text-[var(--accent)] text-lg">→</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-[var(--primary)]">3 días y 2 noches de alojamiento</h3>
+          <p class="text-[var(--accent-light)]">En Hippocampus Concón Resort & Club, con acceso completo. Llegada viernes a las 16:00 y salida domingo a las 18:00. Uso ilimitado de las instalaciones.</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-5">
+        <div class="w-10 h-10 bg-[rgba(255, 133, 81,0.15)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <span class="text-[var(--accent)] text-lg">→</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-[var(--primary)]">Todas las comidas</h3>
+          <p class="text-[var(--accent-light)]">Desayuno, almuerzo y cena con alimentación natural</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-5">
+        <div class="w-10 h-10 bg-[rgba(255, 133, 81,0.15)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <span class="text-[var(--accent)] text-lg">→</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-[var(--primary)]">Prácticas de Movimiento Consciente</h3>
+          <p class="text-[var(--accent-light)]">Clases de Flowback, somática y respiración con Jimmy y Kira</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-5">
+        <div class="w-10 h-10 bg-[rgba(255, 133, 81,0.15)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <span class="text-[var(--accent)] text-lg">→</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-[var(--primary)]">Talleres de heridas emocionales</h3>
+          <p class="text-[var(--accent-light)]">Escritura terapéutica y prácticas somáticas para reprogramar el cuerpo y la mente desde la neurociencia</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-5">
+        <div class="w-10 h-10 bg-[rgba(255, 133, 81,0.15)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <span class="text-[var(--accent)] text-lg">→</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-[var(--primary)]">Meditaciones y dinámicas de autoconocimiento</h3>
+          <p class="text-[var(--accent-light)]">Guiadas por Jimmy y Kira para conectar con tu interior</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-5">
+        <div class="w-10 h-10 bg-[rgba(255, 133, 81,0.15)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <span class="text-[var(--accent)] text-lg">→</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-[var(--primary)]">Experiencias en el Mar</h3>
+          <p class="text-[var(--accent-light)]">Conexión con el océano, playa y naturaleza profunda</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-5">
+        <div class="w-10 h-10 bg-[rgba(255, 133, 81,0.15)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <span class="text-[var(--accent)] text-lg">→</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-[var(--primary)]">SPA y Bienestar</h3>
+          <p class="text-[var(--accent-light)]">Acceso a jacuzzi, sauna y espacios de relajación</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-5">
+        <div class="w-10 h-10 bg-[rgba(255, 133, 81,0.15)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <span class="text-[var(--accent)] text-lg">→</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-[var(--primary)]">Curso de Heridas Emocionales</h3>
+          <p class="text-[var(--accent-light)]">Bono exclusivo incluido para seguir trabajando después del retiro</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="divider mt-16"></div>
+  </div>
+</section>
+
+<!-- FACILITATORS -->
+<section class="section section-dark">
+  <div class="content max-w-5xl mx-auto text-center">
+    <h2 class="font-display text-4xl md:text-5xl font-bold mb-8">
+      Tus <span class="gradient-text">Facilitadores</span>
+    </h2>
+    
+    <div class="grid md:grid-cols-2 gap-12">
+      <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center">
+        <img src="images/retiro/jimmy-lavin-facilitador.jpg" alt="Jimmy Lavin" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-2 border-[var(--accent)]/30">
+        <h3 class="font-display text-2xl font-bold mb-2 text-[var(--accent)]">Jimmy Lavin</h3>
+        <p class="text-[var(--accent)] text-sm font-semibold mb-4 text-[var(--accent)]">Creador de Flowback</p>
+        <p class="text-[var(--cream)]/90 text-sm leading-relaxed">
+          Terapeuta psicocorporal y creador de Flowback. Especialista en trauma, ansiedad y liberación emocional. Ha ayudado a miles a habitar su cuerpo.
+        </p>
+        <div class="flex justify-center gap-4 mt-4 text-xs text-[var(--cream)]/70">
+          <span>1M+ seguidores</span>
+          <span>·</span>
+          <span>2.300+ alumnos</span>
+          <span>·</span>
+          <span>600+ certificados</span>
+        </div>
+      </div>
+      
+      <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center">
+        <img src="images/retiro/kira-escenario.jpg" alt="Kira Huberman" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-2 border-[var(--accent)]/30">
+        <h3 class="font-display text-2xl font-bold mb-2 text-[var(--accent)]">Kira Huberman</h3>
+        <p class="text-[var(--accent)] text-sm font-semibold mb-4 text-[var(--accent)]">Creadora de Flowback</p>
+        <p class="text-[var(--cream)]/90 text-sm leading-relaxed">
+          Terapeuta corporal formada en Neurociencia en la Escuela de Epicurio (España). Terapeuta corporal, youtuber y conferencista. Integra ciencia, somática y mística en cada práctica.
+        </p>
+        <div class="flex justify-center gap-4 mt-4 text-xs text-[var(--cream)]/70">
+          <span>400K+ seguidores</span>
+          <span>·</span>
+          <span>600+ certificados</span>
+          <span>·</span>
+          <span>2.300+ alumnos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PLACE - CONCON -->
+<section class="section bg-white">
+  <div class="content max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="inline-block px-4 py-2 bg-[rgba(255, 133, 81,0.15)] rounded-full text-sm text-[var(--accent)] mb-6">El Escenario</div>
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 text-[var(--primary)]">
+          UN SANTUARIO FRENTE AL MAR
+        </h2>
+        <p class="text-[var(--primary)] text-lg mb-5 leading-relaxed">
+          Ubicado frente a una de las playas más hermosas de la zona central de Chile, Hippocampus Resort es un refugio donde el Pacífico se vuelve testigo silencioso de tu transformación.
+        </p>
+        <p class="text-[var(--primary)] text-lg mb-5 leading-relaxed">
+          Aquí encontrarás piscinas al aire libre, jacuzzi, tinajas calientes con vista al mar, spa y amplios salones donde practicaremos Flow y trabajo somático, mientras las olas marcan el ritmo de tu respiración.
+        </p>
+        <p class="text-[var(--primary)] text-lg mb-5 leading-relaxed">
+          Tres días para volver a habitarte —desde la piel hasta el alma— en un escenario donde la naturaleza hace la mitad del trabajo.
+        </p>
+        <p class="text-[var(--accent)] text-lg font-semibold mb-8">
+          Tu cuerpo ya tiene la respuesta. Concón es donde vas a escucharla.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://hippocampus.cl/" target="_blank" class="cta-button inline-flex items-center justify-center gap-2 font-bold py-3 px-6 rounded-full text-sm">
+            Ver Web del Hotel
+          </a>
+          <a href="https://maps.google.com/?q=Hippocampus+Concon+Chile" target="_blank" class="cta-button inline-flex items-center justify-center gap-2 font-bold py-3 px-6 rounded-full text-sm">
+            Ver en Google Maps
+          </a>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="images/retiro/hippocampus-galeria-1.avif" alt="Hippocampus" class="rounded-xl w-full h-48 object-cover cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
+        <img src="images/retiro/hippocampus-galeria-2.avif" alt="Hippocampus" class="rounded-xl w-full h-48 object-cover cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
+        <img src="images/retiro/hippocampus-galeria-3.jpg" alt="Hippocampus" class="rounded-xl w-full h-48 object-cover cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
+        <img src="images/retiro/hippocampus-galeria-4.jpg" alt="Hippocampus" class="rounded-xl w-full h-48 object-cover cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section section-dark">
+  <div class="content max-w-6xl mx-auto">
+    <div class="divider mb-10"></div>
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-center mb-8">
+      La Experiencia <span class="gradient-text">Flowback</span>
+    </h2>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="images/retiro/experiencia-flowback-2.jpg" alt="Experiencia Flowback" class="rounded-xl w-full h-48 object-cover cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
+      <img src="images/retiro/experiencia-flowback-3.jpg" alt="Experiencia Flowback" class="rounded-xl w-full h-48 object-cover cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
+      <img src="images/retiro/experiencia-flowback-4.jpg" alt="Experiencia Flowback" class="rounded-xl w-full h-48 object-cover cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
+      <img src="images/retiro/experiencia-flowback-5.jpg" alt="Experiencia Flowback" class="rounded-xl w-full h-48 object-cover cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
+    </div>
+    
+    <div class="divider mt-16"></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-dark" id="reservar">
+  <div class="content max-w-6xl mx-auto">
+    <div class="text-center mb-8">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">
+        Elige tu <span class="gradient-text">Espacio</span>
+      </h2>
+      <p class="text-[var(--accent-light)]">Todas las opciones incluyen acceso completo al retiro y al SPA</p>
+      
+      </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Doble -->
+      <div class="price-card p-8 rounded-2xl relative">
+        <div class="text-center mb-6">
+          <h3 class="font-display text-2xl font-bold mb-2 text-[var(--accent)]">Habitación Compartida</h3>
+          <p class="text-[var(--cream)]/80 text-sm">Vas a compartir habitación con alguien de tu mismo género, en un entorno pensado para crear conexión, confianza y tribu.</p>
+        </div>
+        <ul class="text-[var(--cream)] text-sm space-y-3 mb-6">
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Camas individuales</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Espacio de descanso compartido</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Acceso completo al retiro</li>
+        </ul>
+        <div style="background: linear-gradient(135deg, rgba(255, 133, 81,0.1), rgba(255, 133, 81,0.03)); border: 1px solid rgba(255, 133, 81,0.2); border-radius: 20px; padding: 20px; margin-bottom: 20px; text-align: center;">
+          <p style="color: white; font-size: 2.5rem; font-weight: 700; line-height: 1;">$405.900 <span style="font-size: 1rem; color: rgba(245,237,224,0.5);">CLP</span></p>
+          <p style="color: var(--gold); font-size: 0.75rem; font-weight: 600; margin-top: 8px;">PRECIO PREVENTA · Solo 10 cupos</p>
+          <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255, 133, 81,0.15);">
+            <p style="color: rgba(245,237,224,0.4); font-size: 0.85rem;">Desde 15 junio: $446.490</p>
+          </div>
+        </div>
+        
+        <!-- Chile -->
+        <div class="mt-4">
+          <p class="text-xs text-[var(--accent-light)] font-semibold mb-2">Inscripción Chilenos 🇨🇱</p>
+          <p class="text-[var(--accent)] text-xs mb-2">12 cuotas sin interés</p>
+          <a href="https://mpago.la/2cWdfdJ" target="_blank" class="block bg-gradient-to-r from-green-600 to-green-700 text-[var(--primary)] font-bold py-3 px-4 rounded-full text-center text-sm hover:from-green-700 hover:to-green-800 transition">
+            Reservar →
+          </a>
+        </div>
+        
+        <!-- Internacional -->
+        <div class="mt-4 pt-4 border-t border-white/10">
+          <p class="text-xs text-[var(--accent-light)] font-semibold mb-2">Inscripción fuera de Chile</p>
+          <a href="https://nas.com/es-mx/checkout-global?communityId=673b848e847cc6faf207b84b&communityCode=FLOWBACK_FITNESS&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.com%2Fes-mx%2Fportal%2Fevents%2Fmanage%3Fid%3D69ef9863726d5f9f37215102%26activeCommunityId%3D673b848e847cc6faf207b84b%26tab%3Dregistration&sourceInfoType=event&sourceInfoOrigin=69ef9863726d5f9f37215102" target="_blank" class="block bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-white font-bold py-2 px-4 rounded-full text-center text-sm transition">
+            Reservar →
+          </a>
+        </div>
+      </div>
+      
+      <!-- Individual -->
+      <div class="price-card p-8 rounded-2xl relative">
+        <div class="text-center mb-6">
+          <h3 class="font-display text-2xl font-bold mb-2 text-[var(--accent)]">Habitación Individual</h3>
+          <p class="text-[var(--cream)]/80 text-sm">Un lugar solo para ti, donde puedes descansar, procesar y habitar tu experiencia con total intimidad.</p>
+        </div>
+        <ul class="text-[var(--cream)] text-sm space-y-3 mb-6">
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Habitación privada</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Cama king</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Baño privado</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Terraza con vista</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Acceso completo al retiro</li>
+        </ul>
+        <div style="background: linear-gradient(135deg, rgba(255, 133, 81,0.1), rgba(255, 133, 81,0.03)); border: 1px solid rgba(255, 133, 81,0.2); border-radius: 20px; padding: 20px; margin-bottom: 20px; text-align: center;">
+          <p style="color: white; font-size: 2.5rem; font-weight: 700; line-height: 1;">$636.900 <span style="font-size: 1rem; color: rgba(245,237,224,0.5);">CLP</span></p>
+          <p style="color: var(--gold); font-size: 0.75rem; font-weight: 600; margin-top: 8px;">PRECIO PREVENTA · Solo 10 cupos</p>
+          <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255, 133, 81,0.15);">
+            <p style="color: rgba(245,237,224,0.4); font-size: 0.85rem;">Desde 15 junio: $700.590</p>
+          </div>
+        </div>
+        
+        <!-- Chile -->
+        <div class="mt-4">
+          <p class="text-xs text-[var(--accent-light)] font-semibold mb-2">Inscripción Chilenos 🇨🇱</p>
+          <p class="text-[var(--accent)] text-xs mb-2">12 cuotas sin interés</p>
+          <a href="https://mpago.la/2JPYy4Q" target="_blank" class="block bg-gradient-to-r from-green-600 to-green-700 text-[var(--primary)] font-bold py-3 px-4 rounded-full text-center text-sm hover:from-green-700 hover:to-green-800 transition">
+            Reservar →
+          </a>
+        </div>
+        
+        <!-- Internacional -->
+        <div class="mt-4 pt-4 border-t border-white/10">
+          <p class="text-xs text-[var(--accent-light)] font-semibold mb-2">Inscripción fuera de Chile</p>
+          <a href="https://nas.com/es-mx/checkout-global?communityId=673b848e847cc6faf207b84b&communityCode=FLOWBACK_FITNESS&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.com%2Fes-mx%2Fportal%2Fevents%2Fmanage%3Fid%3D69ef9863726d5f9f37215102%26activeCommunityId%3D673b848e847cc6faf207b84b%26tab%3Dregistration&sourceInfoType=event&sourceInfoOrigin=69ef9883e71ee1600da9f1a7" target="_blank" class="block bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-white font-bold py-2 px-4 rounded-full text-center text-sm transition">
+            Reservar →
+          </a>
+        </div>
+      </div>
+      
+      <!-- Pareja -->
+      <div class="price-card p-8 rounded-2xl relative">
+        <div class="text-center mb-6">
+          <h3 class="font-display text-2xl font-bold mb-2 text-[var(--accent)]">Habitación Pareja</h3>
+          <p class="text-[var(--cream)]/70 text-sm mb-4">2 personas</p>
+          <p class="text-[var(--cream)]/80 text-sm">Comparte este viaje con tu pareja en un espacio íntimo, diseñado para reconectar, soltar y crecer juntos.</p>
+        </div>
+        <ul class="text-[var(--cream)] text-sm space-y-3 mb-6">
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Habitación privada</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Cama matrimonial</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Baño privado</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Terraza privada</li>
+          <li class="flex items-center gap-2"><span class="text-[var(--accent)]">✓</span> Acceso completo al retiro</li>
+        </ul>
+        <div style="background: linear-gradient(135deg, rgba(255, 133, 81,0.1), rgba(255, 133, 81,0.03)); border: 1px solid rgba(255, 133, 81,0.2); border-radius: 20px; padding: 20px; margin-bottom: 20px; text-align: center;">
+          <p style="color: white; font-size: 2.5rem; font-weight: 700; line-height: 1;">$650.100 <span style="font-size: 1rem; color: rgba(245,237,224,0.5);">CLP</span></p>
+          <p style="color: var(--gold); font-size: 0.75rem; font-weight: 600; margin-top: 8px;">PRECIO PREVENTA · Solo 10 cupos</p>
+          <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255, 133, 81,0.15);">
+            <p style="color: rgba(245,237,224,0.4); font-size: 0.85rem;">Desde 15 junio: $715.110</p>
+          </div>
+        </div>
+        
+        <!-- Chile -->
+        <div class="mt-4">
+          <p class="text-xs text-[var(--accent-light)] font-semibold mb-2">Inscripción Chilenos 🇨🇱</p>
+          <p class="text-[var(--accent)] text-xs mb-2">12 cuotas sin interés</p>
+          <a href="https://mpago.la/2QqPv9A" target="_blank" class="block bg-gradient-to-r from-green-600 to-green-700 text-[var(--primary)] font-bold py-3 px-4 rounded-full text-center text-sm hover:from-green-700 hover:to-green-800 transition">
+            Reservar →
+          </a>
+        </div>
+        
+        <!-- Internacional -->
+        <div class="mt-4 pt-4 border-t border-white/10">
+          <p class="text-xs text-[var(--accent-light)] font-semibold mb-2">Inscripción fuera de Chile</p>
+          <a href="https://nas.com/es-mx/checkout-global?communityId=673b848e847cc6faf207b84b&communityCode=FLOWBACK_FITNESS&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.com%2Fes-mx%2Fportal%2Fevents%2Fmanage%3Fid%3D69ef98e5e71ee1600daa08ab%26activeCommunityId%3D673b848e847cc6faf207b84b%26tab%3Dregistration&sourceInfoType=event&sourceInfoOrigin=69ef98e5e71ee1600daa08ab" target="_blank" class="block bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-white font-bold py-2 px-4 rounded-full text-center text-sm transition">
+            Reservar →
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- WhatsApp CTA -->
+    <div class="mt-12 text-center">
+      <a href="https://wa.me/56975905158?text=quiero%20saber%20del%20retiro%20de%20Flowback%20en%20Agosto" target="_blank" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all hover:scale-105 hover:shadow-lg hover:shadow-green-500/30">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Habla con nuestro equipo por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HABITACIONES GALLERY -->
+<section class="section bg-[var(--primary)]" style="padding: 4rem 0 5rem;">
+  <div class="w-full">
+    <div class="text-center mb-10 px-6">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-3 text-[var(--cream)]">Habitaciones</h2>
+      <p class="text-[var(--cream)]/60 text-base">Espacios diseñados para descansar, procesar y fluir</p>
+    </div>
+    
+    <!-- Horizontal scroll carousel -->
+    <div style="display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:16px; padding:0 24px 24px; -webkit-overflow-scrolling:touch;">
+      <style>.hab-card::-webkit-scrollbar{display:none;} .hab-card img{transition:transform .4s ease; cursor:pointer;} .hab-card:hover img{transform:scale(1.05);}</style>
+      
+      <!-- Hab 1 -->
+      <div class="hab-card" style="flex-shrink:0; width:300px; scroll-snap-align:start; background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+        <div style="aspect-ratio:4/3; overflow:hidden;">
+          <img src="assets/habitaciones/HIPPOCAMPUS-IMAGEN-GALERIA-HAB-1.webp" alt="Habitación 1" style="width:100%;height:100%;object-fit:cover;" onclick="openLightbox(this.src)">
+        </div>
+        <div style="padding:16px;">
+          <p class="text-[var(--accent)] font-semibold text-sm">Habitación Individual</p>
+          <p class="text-[var(--cream)]/60 text-xs mt-1">Cama king, baño privado, terraza</p>
+        </div>
+      </div>
+      
+      <!-- Hab 2 -->
+      <div class="hab-card" style="flex-shrink:0; width:300px; scroll-snap-align:start; background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+        <div style="aspect-ratio:4/3; overflow:hidden;">
+          <img src="assets/habitaciones/HIPPOCAMPUS-IMAGEN-GALERIA-HAB-2.webp" alt="Habitación 2" style="width:100%;height:100%;object-fit:cover;" onclick="openLightbox(this.src)">
+        </div>
+        <div style="padding:16px;">
+          <p class="text-[var(--accent)] font-semibold text-sm">Habitación Pareja</p>
+          <p class="text-[var(--cream)]/60 text-xs mt-1">Cama matrimonial, baño privado</p>
+        </div>
+      </div>
+      
+      <!-- Hab 3 -->
+      <div class="hab-card" style="flex-shrink:0; width:300px; scroll-snap-align:start; background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+        <div style="aspect-ratio:4/3; overflow:hidden;">
+          <img src="assets/habitaciones/HIPPOCAMPUS-IMAGEN-GALERIA-HAB-3.webp" alt="Habitación 3" style="width:100%;height:100%;object-fit:cover;" onclick="openLightbox(this.src)">
+        </div>
+        <div style="padding:16px;">
+          <p class="text-[var(--accent)] font-semibold text-sm">Suite Premium</p>
+          <p class="text-[var(--cream)]/60 text-xs mt-1">Vista al mar, amplitud total</p>
+        </div>
+      </div>
+      
+      <!-- Hab 4 -->
+      <div class="hab-card" style="flex-shrink:0; width:300px; scroll-snap-align:start; background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+        <div style="aspect-ratio:4/3; overflow:hidden;">
+          <img src="assets/habitaciones/HIPPOCAMPUS-IMAGEN-GALERIA-HAB-4.webp" alt="Habitación 4" style="width:100%;height:100%;object-fit:cover;" onclick="openLightbox(this.src)">
+        </div>
+        <div style="padding:16px;">
+          <p class="text-[var(--accent)] font-semibold text-sm">Baño Privado</p>
+          <p class="text-[var(--cream)]/60 text-xs mt-1">Baño completo con vista</p>
+        </div>
+      </div>
+      
+      <!-- Hab 5 -->
+      <div class="hab-card" style="flex-shrink:0; width:300px; scroll-snap-align:start; background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+        <div style="aspect-ratio:4/3; overflow:hidden;">
+          <img src="assets/habitaciones/HIPPOCAMPUS-IMAGEN-GALERIA-HAB-5.webp" alt="Habitación 5" style="width:100%;height:100%;object-fit:cover;" onclick="openLightbox(this.src)">
+        </div>
+        <div style="padding:16px;">
+          <p class="text-[var(--accent)] font-semibold text-sm">Terraza Privada</p>
+          <p class="text-[var(--cream)]/60 text-xs mt-1">Espacio al aire libre propio</p>
+        </div>
+      </div>
+      
+      <!-- Hab 6 -->
+      <div class="hab-card" style="flex-shrink:0; width:300px; scroll-snap-align:start; background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+        <div style="aspect-ratio:4/3; overflow:hidden;">
+          <img src="assets/habitaciones/HIPPOCAMPUS-IMAGEN-GALERIA-HAB-6.webp" alt="Habitación 6" style="width:100%;height:100%;object-fit:cover;" onclick="openLightbox(this.src)">
+        </div>
+        <div style="padding:16px;">
+          <p class="text-[var(--accent)] font-semibold text-sm">Vista al Mar</p>
+          <p class="text-[var(--cream)]/60 text-xs mt-1">Panorámica jardín y océano</p>
+        </div>
+      </div>
+      
+      <!-- Senior Suite -->
+      <div class="hab-card" style="flex-shrink:0; width:300px; scroll-snap-align:start; background:linear-gradient(135deg,rgba(255,133,81,0.15),rgba(255,133,81,0.05)); border-radius:20px; overflow:hidden; border:2px solid rgba(255,133,81,0.4);">
+        <div style="aspect-ratio:4/3; overflow:hidden;">
+          <img src="assets/habitaciones/Senior-grande-2.webp" alt="Senior Suite" style="width:100%;height:100%;object-fit:cover;" onclick="openLightbox(this.src)">
+        </div>
+        <div style="padding:16px;">
+          <p class="text-[var(--accent-light)] font-bold text-sm">⭐ Senior Suite</p>
+          <p class="text-[var(--cream)]/60 text-xs mt-1">La mejor habitación del hotel</p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Scroll hint -->
+    <p style="text-align:center; color:rgba(245,237,224,0.25); font-size:0.7rem; margin-top:4px;">← Deslizá para ver más habitaciones →</p>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="section section-dark">
+  <div class="content max-w-4xl mx-auto text-center">
+    <div class="font-display text-7xl mb-8 text-[var(--accent)] opacity-50">"</div>
+    <blockquote class="font-display text-3xl md:text-4xl mb-8 leading-relaxed text-[var(--accent)]">
+      Llegué agotada, sin energía, con dolor de espalda crónico. Me fui fluyendo, ligera, con el cuerpo liberando tensión que llevaba años cargando.
+    </blockquote>
+    <div class="flex items-center justify-center gap-4">
+      <img src="images/retiro/testimonio-maria-jose.jpg" alt="María José" class="w-24 h-24 rounded-full object-cover border-2 border-[var(--accent)]">
+      <div class="text-left">
+        <p class="font-semibold text-[var(--primary)]">María José</p>
+        <p class="text-[var(--cream)]/80 text-sm">Retiro Flowback, Marzo 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section relative overflow-hidden">
+  <div class="hero-image" style="background-image: url('images/retiro/flowback-04-grupo.jpg'); opacity: 0.5;"></div>
+  <div class="content text-center max-w-4xl mx-auto">
+    <h2 class="font-display text-5xl md:text-6xl font-bold mb-6 text-[var(--primary)]">Tu Transformación<br><span class="text-[var(--primary)]">Te Espera</span></h2>
+    <p class="text-[var(--primary)] mb-8">Hippocampus Concón Resort & Club · Región de Valparaíso</p>
+    <a href="#reservar" class="cta-button inline-block font-bold py-5 px-12 rounded-full text-xl">Reservar Mi Lugar Ahora →</a>
+    
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 section-dark text-center">
+  <p class="font-display text-2xl mb-2">Flowback</p>
+  <p class="text-[var(--accent-light)] mb-6">Movimiento Consciente · Sanación Somática · Transformación</p>
+  <div class="flex justify-center gap-6 mb-6">
+    <a href="https://wa.me/56975905158" class="text-[var(--accent-light)] hover:text-[var(--accent)] transition">WhatsApp</a>
+  </div>
+  <p class="text-[var(--accent-light)]/80 text-sm"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c4f4342584d4f58436c4a40435b4e4d4f47024f40">[email&#160;protected]</a></p>
+  <p class="text-[var(--cream)]/80 text-sm">+569 7590 5158</p>
+  <p class="text-[var(--accent-light)]/50 text-xs mt-4">Hippocampus Concón Resort & Club · Camino Troncal s/n, Concón, Región de Valparaíso, Chile</p>
+</footer>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 bg-brown-light/95 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
+  <button class="absolute top-4 right-4 text-[var(--primary)]/70 hover:text-[var(--primary)] text-4xl">&times;</button>
+  <img id="lightbox-img" src="" alt="放大查看" class="max-w-full max-h-[90vh] object-contain" onclick="event.stopPropagation()">
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.remove('hidden');
+  document.getElementById('lightbox').classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.add('hidden');
+  document.getElementById('lightbox').classList.remove('flex');
+  document.body.style.overflow = 'auto';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+    // Hide fallback when video loads or plays
+    const heroVideo = document.querySelector('.hero-video');
+    const heroFallback = document.querySelector('.hero-fallback');
+    if (heroVideo && heroFallback) {
+      heroVideo.addEventListener('loadeddata', () => {
+        heroFallback.style.display = 'none';
+        heroVideo.classList.add('loaded');
+      });
+      heroVideo.addEventListener('play', () => {
+        heroFallback.style.display = 'none';
+        heroVideo.classList.add('loaded');
+      });
+      heroVideo.addEventListener('error', () => {
+        // Keep fallback visible on error
+        heroFallback.style.opacity = '1';
+      });
+    }</script>
+
+</body>
+</html>
