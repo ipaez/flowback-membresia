@@ -1,0 +1,29 @@
+{
+  "name": "Flowback - Movimiento Consciente",
+  "short_name": "Flowback",
+  "description": "Accede a clases de movimiento animal, locomoci\u00f3n y bienestar desde cualquier lugar.",
+  "start_url": "/app.html",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#F57C00",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/logo-flowback.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/logo-flowback.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": [
+    "fitness",
+    "health",
+    "lifestyle"
+  ]
+}
