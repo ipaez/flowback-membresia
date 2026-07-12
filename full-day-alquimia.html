@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Day Alquimia Corporal Flowback — 19 Julio 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brown: #4D331A;
+      --brown-light: #6B4D2E;
+      --brown-dark: #2D1E10;
+      --green-lime: #9ACC2B;
+      --green-lime-dark: #7AAF1F;
+      --teal-dark: #14474C;
+      --gray-text: #6C6C6C;
+      --cream: #FAF8F5;
+      --white: #FFFFFF;
+    }
+    
+    * { font-family: 'Inter', sans-serif; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    
+    body { 
+      background: var(--brown); 
+      color: var(--gray-text); 
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, var(--green-lime), #B8E052);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cta-button {
+      background: var(--green-lime);
+      color: var(--white);
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .cta-button:hover { 
+      background: var(--green-lime-dark);
+      transform: translateY(-2px); 
+      box-shadow: 0 10px 30px rgba(154, 204, 43, 0.3); 
+    }
+    
+    .section { 
+      min-height: auto; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      padding: 5rem 2rem; 
+    }
+    
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--brown-dark);
+    }
+    .hero-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      z-index: 0;
+    }
+    .hero-video {
+      display: none;
+    }
+    .hero-fallback {
+      display: none;
+    }
+    .hero-band {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      background: var(--brown-dark);
+      z-index: 3;
+      padding: 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-band-top {
+      top: 0;
+      height: 25vh;
+      min-height: 120px;
+    }
+    .hero-band-bottom {
+      bottom: 0;
+      height: 20vh;
+      min-height: 100px;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+      background: rgba(45, 30, 16, 0.15);
+    }
+    .hero-content {
+      opacity: 0; animation: fadeInContent 1s ease-out 0.3s forwards;
+    }
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .content { position: relative; z-index: 10; }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    }
+    
+    .section-dark { 
+      background: var(--teal-dark) !important; 
+    }
+    .section-dark h2, 
+    .section-dark h3, 
+    .section-dark p, 
+    .section-dark li { 
+      color: var(--white) !important; 
+    }
+    .section-dark .text-\\[var\\(--gray-text\\)\\] { 
+      color: rgba(255,255,255,0.7) !important; 
+    }
+    
+    .activity-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+    .activity-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(154,204,43,0.3);
+    }
+    
+    .price-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .price-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .price-card.featured { 
+      border-color: var(--green-lime); 
+      box-shadow: 0 0 50px rgba(154, 204, 43, 0.15); 
+    }
+    
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+    
+    @media (max-width: 768px) {
+      .section { padding: 3rem 1.5rem; }
+    }
+  
+    /* WhatsApp Float Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .whatsapp-float-btn {
+      width: 64px;
+      height: 64px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .whatsapp-float-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-float-btn svg {
+      width: 36px;
+      height: 36px;
+      fill: white;
+    }
+    .whatsapp-float-tooltip {
+      background: white;
+      color: #075E54;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .whatsapp-float:hover .whatsapp-float-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        bottom: 16px;
+        right: 16px;
+      }
+      .whatsapp-float-btn {
+        width: 56px;
+        height: 56px;
+      }
+      .whatsapp-float-btn svg {
+        width: 30px;
+        height: 30px;
+      }
+      .whatsapp-float-tooltip {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- WhatsApp Float Widget -->
+<div class="whatsapp-float">
+  <div class="whatsapp-float-tooltip">
+    ¿Dudas? Escríbenos 💬
+  </div>
+  <a href="https://wa.me/56975905158?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20Full%20Day%20Alquimia%20Corporal%20del%2019%20de%20Julio" target="_blank" class="whatsapp-float-btn" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- HERO -->
+<section class="hero-section">
+  <img class="hero-image" src="images/retiro/hero-alquimia.webp" alt="Alquimia Corporal Flowback">
+  <div class="hero-overlay"></div>
+  
+  <!-- Banda superior -->
+  <div class="hero-band hero-band-top">
+    <p class="text-white/50 text-base tracking-widest uppercase mb-4 font-medium">Full Day</p>
+    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
+      Alquimia Corporal<br><span class="gradient-text">Flowback</span>
+    </h1>
+  </div>
+  
+  <!-- Banda inferior -->
+  <div class="hero-band hero-band-bottom" style="padding-top: 1rem;">
+    <p class="text-green-lime text-xl md:text-2xl font-semibold max-w-2xl mx-auto leading-relaxed mb-2">
+      El cuerpo y las emociones: <span class="text-white">la clase que nadie te dio</span>
+    </p>
+    <p class="text-white/80 text-lg md:text-xl tracking-wide">19 de Julio · Concón, Chile</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="content max-w-3xl mx-auto text-center px-6">
+    <p class="text-lg md:text-xl leading-relaxed text-white/80 mb-8">
+      En este Full Day vas a aprender lo que tu sistema nervioso siempre supo y nadie te enseñó: que las emociones no se piensan, se mueven. A través del movimiento consciente, las activaciones bioenergéticas de respiración y la meditación guiada, vas a descargar el estrés acumulado en tu cuerpo y devolverle a tu mente el silencio que tanto busca.
+    </p>
+  </div>
+</section>
+
+<!-- ACTIVIDADES -->
+<section class="section section-dark">
+  <div class="content max-w-4xl mx-auto">
+    <p class="text-center text-green-lime/80 text-sm tracking-widest uppercase mb-4">Junto a Kira y Jimmy</p>
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-center mb-12 text-white">
+      Lo que <span class="text-green-lime">vivirás</span>
+    </h2>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl overflow-hidden">
+        <img src="images/retiro/movimiento-flowback.jpg" alt="Movimiento Flowback" class="w-full aspect-square object-cover">
+        <div class="p-5" style="background: rgba(255,255,255,0.05);">
+          <h3 class="text-xl font-semibold text-white mb-2">Clases de Movimiento Flowback</h3>
+          <p class="text-white/70">Para liberar bloqueos y despertar la energía vital.</p>
+        </div>
+      </div>
+      
+      <div class="rounded-2xl overflow-hidden">
+        <img src="images/retiro/meditacion-flowback.jpg" alt="Meditación Guiada" class="w-full aspect-square object-cover">
+        <div class="p-5" style="background: rgba(255,255,255,0.05);">
+          <h3 class="text-xl font-semibold text-white mb-2">Meditación Guiada</h3>
+          <p class="text-white/70">Para fortalecer la confianza en ti y conectar con tu mundo interior.</p>
+        </div>
+      </div>
+      
+      <div class="rounded-2xl overflow-hidden">
+        <img src="images/retiro/taller-flowback.jpg" alt="Taller Práctico" class="w-full aspect-square object-cover">
+        <div class="p-5" style="background: rgba(255,255,255,0.05);">
+          <h3 class="text-xl font-semibold text-white mb-2">Taller Práctico del Método Flowback</h3>
+          <p class="text-white/70">Para Regular el Estrés y recuperar tu energía vital.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-10 p-8 rounded-2xl text-center" style="background: rgba(154,204,43,0.1); border: 1px solid rgba(154,204,43,0.2);">
+      <p class="text-white/90 text-lg leading-relaxed">
+        Aprenderás técnicas prácticas para canalizar el estrés, regular tus emociones y crear más bienestar en tu vida cotidiana.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- NO NECESITAS EXPERIENCIA -->
+<section class="section" style="background: var(--brown-dark);">
+  <div class="content max-w-3xl mx-auto text-center px-6">
+    <div class="p-10 md:p-14 rounded-3xl" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+      <p class="text-5xl mb-8">🌟</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
+        No necesitas experiencia previa
+      </h2>
+      <p class="text-lg text-white/70 mb-8">
+        Solo venir con el corazón abierto y la disposición de regalarte un día para ti.
+      </p>
+      <p class="quote-text text-xl text-green-lime italic">
+        Porque cuando el cuerpo se libera, la mente se aquieta y la vida comienza a sentirse más liviana.
+      </p>
+      <p class="text-white/50 text-sm mt-6">Actividad recomendada para todas las edades</p>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITADORES -->
+<section class="section section-dark">
+  <div class="content max-w-4xl mx-auto">
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-center mb-12 text-white">
+      Tus <span class="text-green-lime">Facilitadores</span>
+    </h2>
+    
+    <div class="grid md:grid-cols-2 gap-12">
+      <div class="text-center">
+        <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden border-4 border-green-lime/30">
+          <img src="images/retiro/jimmy-lavin-facilitador.jpg" alt="Jimmy Lavin" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-display text-2xl font-bold text-white mb-2">Jimmy Lavin</h3>
+        <p class="text-green-lime text-sm uppercase tracking-wider mb-4">Creador de Flowback</p>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Terapeuta psicocorporal y creador de Flowback. Especialista en trauma, ansiedad y liberación emocional.
+        </p>
+      </div>
+      
+      <div class="text-center">
+        <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden border-4 border-green-lime/30">
+          <img src="images/retiro/kira-escenario.jpg" alt="Kira Huberman" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-display text-2xl font-bold text-white mb-2">Kira Huberman</h3>
+        <p class="text-green-lime text-sm uppercase tracking-wider mb-4">Creadora de Flowback</p>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Terapeuta corporal formada en Neurociencia. Integra ciencia, somática y mística en cada práctica.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORARIO -->
+<section class="section" style="background: var(--brown);">
+  <div class="content max-w-2xl mx-auto text-center px-6">
+    <h2 class="font-display text-4xl md:text-5xl font-bold mb-12 text-white">
+      📅 Horario
+    </h2>
+    
+    <div class="p-8 md:p-10 rounded-3xl" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+      <div class="flex items-center justify-center gap-6 mb-8">
+        <span class="text-5xl">🕙</span>
+        <div class="text-left">
+          <p class="text-4xl font-bold text-white">10:00 AM</p>
+          <p class="text-white/60">Inicio</p>
+        </div>
+      </div>
+      
+      <div class="w-px h-12 bg-white/20 mx-auto"></div>
+      
+      <div class="flex items-center justify-center gap-6 mt-8">
+        <span class="text-5xl">🕐</span>
+        <div class="text-left">
+          <p class="text-4xl font-bold text-white">1:00 PM</p>
+          <p class="text-white/60">Término</p>
+        </div>
+      </div>
+    </div>
+    
+    <p class="text-white/50 mt-8">3 horas de transformación</p>
+  </div>
+</section>
+
+<!-- ESCENARIO -->
+<section class="section" style="background: var(--teal-dark);">
+  <div class="content max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-green-lime text-sm uppercase tracking-widest mb-4">El Escenario</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
+          UN SANTUARIO FRENTE AL MAR
+        </h2>
+        <p class="text-white/70 text-lg mb-4 leading-relaxed">
+          Ubicado frente a una de las playas más hermosas de la zona central de Chile, <strong class="text-green-lime">Hippocampus Resort</strong> es un refugio donde el Pacífico se vuelve testigo silencioso de tu transformación.
+        </p>
+        <p class="text-white/60 text-sm mb-8">
+          <i data-lucide="map-pin" class="inline-block w-4 h-4 mr-1"></i>
+          Las Pimpinelas 763, 2510006 Concón, Valparaíso
+        </p>
+        <p class="text-green-lime text-lg font-semibold mb-8">
+          Tu cuerpo ya tiene la respuesta. Concón es donde vas a escucharla.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://hippocampus.cl/" target="_blank" class="cta-button inline-flex items-center justify-center gap-2 font-bold py-3 px-6 rounded-full text-sm">
+            Ver Web del Hotel
+          </a>
+          <a href="https://maps.google.com/?q=Hippocampus+Concon+Chile" target="_blank" class="cta-button inline-flex items-center justify-center gap-2 font-bold py-3 px-6 rounded-full text-sm">
+            Ver en Google Maps
+          </a>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-4">
+        <img src="images/retiro/hippocampus-galeria-1.avif" alt="Hippocampus" class="rounded-xl w-full h-40 object-cover">
+        <img src="images/retiro/hippocampus-galeria-2.avif" alt="Hippocampus" class="rounded-xl w-full h-40 object-cover">
+        <img src="images/retiro/hippocampus-galeria-3.jpg" alt="Hippocampus" class="rounded-xl w-full h-40 object-cover">
+        <img src="images/retiro/hippocampus-galeria-4.jpg" alt="Hippocampus" class="rounded-xl w-full h-40 object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section class="section section-dark" id="registro">
+  <div class="content max-w-5xl mx-auto">
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-center mb-4 text-white">
+      Inscríbete
+    </h2>
+    <p class="text-center text-white/60 mb-12">19 de Julio 2026 · 10:00 - 13:00</p>
+    
+    <!-- ONLINE — Primero -->
+    <div class="mb-12">
+      <p class="text-green-lime text-sm uppercase tracking-widest mb-6 text-center font-semibold">
+        🌍 Online · Desde cualquier lugar del mundo
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <!-- Online En Vivo -->
+        <div class="price-card featured rounded-3xl p-8 text-center relative overflow-hidden">
+          <div class="absolute top-4 right-4 bg-green-lime text-white text-xs font-bold py-1 px-3 rounded-full">
+            Recomendado
+          </div>
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <span class="text-3xl">🎥</span>
+            <p class="text-green-lime text-xl font-bold">En Vivo</p>
+          </div>
+          <p class="text-white/60 text-sm mb-4">Participa en tiempo real + Grabación incluida</p>
+          <p class="text-5xl font-bold text-green-lime mb-2">$20 USD</p>
+          <p class="text-white/40 text-sm mb-6">~$20.000 pesos</p>
+          <a href="https://nas.com/es-mx/flowback-fitness/events/full-day-alquimia-corporal-1781146278220" target="_blank" class="cta-button inline-block font-bold py-4 px-8 rounded-full">
+            Reservar →
+          </a>
+        </div>
+        
+        <!-- Solo Grabación -->
+        <div class="price-card rounded-3xl p-8 text-center relative" style="background: rgba(255,255,255,0.05);">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <span class="text-3xl">📹</span>
+            <p class="text-white/80 text-xl font-bold">Solo Grabación</p>
+          </div>
+          <p class="text-white/50 text-sm mb-4">Accede cuando quieras, para siempre</p>
+          <p class="text-4xl font-bold text-white/70 mb-2">$10 USD</p>
+          <p class="text-white/40 text-sm mb-6">~$10.000 pesos</p>
+          <a href="https://nas.com/es-mx/flowback-fitness/events/full-day-alquimia-corporal-1781146278220" target="_blank" class="inline-block font-bold py-4 px-8 rounded-full border-2 border-white/20 text-white/70 hover:bg-white/10 transition">
+            Reservar →
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- PRESENCIAL — Después -->
+    <div>
+      <p class="text-white/50 text-sm uppercase tracking-wider mb-6 text-center">
+        🏖️ Presencial · Hippocampus Resort, Concón
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <!-- Individual -->
+        <div class="price-card rounded-3xl p-8 text-center relative">
+          <p class="text-white/60 text-lg mb-2">1 Persona</p>
+          <p class="text-5xl font-bold text-white mb-4">$58.000</p>
+          <p class="text-white/40 text-sm mb-6">Pesos chilenos</p>
+          <a href="https://nas.com/es-mx/flowback-fitness/events/full-day-alquimia-corporal" target="_blank" class="cta-button inline-block font-bold py-4 px-8 rounded-full">
+            Reservar →
+          </a>
+        </div>
+        
+        <!-- 2 Personas -->
+        <div class="price-card featured rounded-3xl p-8 text-center relative overflow-hidden">
+          <div class="absolute top-4 right-4 bg-green-lime text-white text-xs font-bold py-1 px-3 rounded-full">
+            Mejor valor
+          </div>
+          <p class="text-white/60 text-lg mb-2">2 Personas</p>
+          <p class="text-5xl font-bold text-green-lime mb-4">$84.000</p>
+          <p class="text-white/40 text-sm mb-6">Pesos chilenos · $42.000 c/u</p>
+          <a href="https://nas.com/flowback-fitness/events/full-day-alquimia-corporal-1781101282659" target="_blank" class="cta-button inline-block font-bold py-4 px-8 rounded-full">
+            Reservar →
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://wa.me/56975905158?text=Quiero%20saber%20del%20Full%20Day%20de%20Concon" target="_blank" class="inline-flex items-center gap-3 bg-green-lime text-white font-bold py-4 px-8 rounded-full hover:bg-green-lime-dark transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        ¿Tienes dudas? Escríbenos por WhatsApp
+      </a>
+      <a href="https://flowback.infraqualia.com/app.html" target="_blank" class="inline-flex items-center gap-3 bg-white/10 backdrop-blur text-white font-bold py-4 px-8 rounded-full hover:bg-white/20 transition border border-white/20">
+        <span class="text-xl">🎁</span>
+        Descarga gratis ejercicios psicocorporales aquí
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 text-center" style="background: var(--brown-dark);">
+  <p class="font-display text-2xl mb-2 text-white">Flowback</p>
+  <p class="text-white/40 text-sm">Movimiento Consciente · Sanación Somática · Transformación</p>
+  <p class="text-white/30 text-sm mt-4">+569 7590 5158</p>
+</footer>
